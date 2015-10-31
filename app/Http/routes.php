@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/practice', function () {
-  echo 'hi there';
-});
+
+Route::get('/', 'MasterController@getIndex');
+
+Route::get('/about', 'AboutController@getIndex');
+Route::get('/charityfinder', 'CharityController@getIndex');
+Route::get('/newdonation', 'NewDonationController@getIndex');
+Route::get('/mydonations', 'MyDonationsController@getIndex');
