@@ -21,4 +21,4 @@ Route::get('/', 'MasterController@getIndex');
 Route::get('/about', 'AboutController@getIndex');
 Route::get('/charityfinder', 'CharityController@getIndex');
 Route::get('/newdonation', 'NewDonationController@getIndex');
-Route::get('/mydonations', 'MyDonationsController@getIndex');
+Route::get('/account', 'AccountController@getIndex');

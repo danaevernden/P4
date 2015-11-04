@@ -5,13 +5,13 @@ namespace P4\Http\Controllers;
 use P4\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MyDonationsController extends Controller {
+class AccountController extends Controller {
 
     public function __construct() {
         # Put anything here that should happen before any of the other actions
     }
 
     public function getIndex() {
-        return 'mydonationscontroller';
+             return view('Account.index');
     }
 }

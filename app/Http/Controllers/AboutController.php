@@ -12,6 +12,6 @@ class AboutController extends Controller {
     }
 
     public function getIndex() {
-        return 'aboutcontroller';
+         return view('About.index');
     }
 }

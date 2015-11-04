@@ -12,6 +12,6 @@ class NewDonationController extends Controller {
     }
 
     public function getIndex() {
-        return 'newdonationcontroller';
+             return view('NewDonation.index');
     }
 }

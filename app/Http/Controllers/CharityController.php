@@ -12,6 +12,6 @@ class CharityController extends Controller {
     }
 
     public function getIndex() {
-        return 'charitycontroller';
+             return view('Charity.index');
     }
 }
