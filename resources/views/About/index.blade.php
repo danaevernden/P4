@@ -46,7 +46,7 @@
     the world a bit smaller,
     the pain and suffering and oneness a bit more tangeable.
 
-  <br>
+  <br><br>
     What will the space under your tree look like this holiday season?
     <br>
     <br>
