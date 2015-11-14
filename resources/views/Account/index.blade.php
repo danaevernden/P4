@@ -9,6 +9,18 @@
 
 @section('content')
   <div class="maincontent">
-    hi
+    Username:
+    <br>
+    First Name:
+    <br>
+    Last Name:
+    City:
+    <br>
+    State:
+    <br>
+    Change Password
+    <br>
+    Change location
+
   </div>
 @stop

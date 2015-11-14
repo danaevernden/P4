@@ -26,9 +26,9 @@
       <h1>
         <a href="/about">About</a>
          -
-        <a href="/charityfinder">Find a Charity</a>
+        <a href="/charity">Find a Charity</a>
          -
-        <a href="/newdonation">Log a Donation</a>
+        <a href="/newwish">Log a Wish</a>
         -
        <a href="/account">My Account</a>
         -

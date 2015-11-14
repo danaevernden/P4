@@ -30,12 +30,23 @@
     <br>
     <br>
     In a world of same-day delivery and online shopping, shopping for
-    others for the holidays has never been more difficult.
-    Donating on behalf of others, however, brings into light what people
-    really care about, same-day delivery and materialism aside.
-    Donating on behalf of others makes the world a bit smaller,
+    others for the holidays has never been more difficult. In a world of
+    entrepreneurs, where will you get your initial funding from?
+    In a world of daily shootings, hunger in America, and incurable
+    diseases, how will you choose to help?  Will you avoid the situation,
+    pretending like it doesn't exist? Will you live in fear? Will you work in
+    the field, taking a daily stand in front of the issue you truly believe you
+    can help solve? Will you donate your time on the weekends here and there?
+    Or will you donate, acknowledging that you are not able to help by donating
+    time, but still want to help nonetheless.
+
+    Donating on behalf of others brings into light what people
+    really care about, suffering parties, same-day delivery,
+    and materialism aside. Donating on behalf of others makes
+    the world a bit smaller,
     the pain and suffering and oneness a bit more tangeable.
 
+  <br>
     What will the space under your tree look like this holiday season?
     <br>
     <br>

@@ -11,7 +11,20 @@ class CharityController extends Controller {
         # Put anything here that should happen before any of the other actions
     }
 
-    public function getIndex() {
-             return view('Charity.index');
+
+    public function preIndex() {
+        return view('Charity.preindex');
+    }
+
+    public function getIndexCharityFinder(){
+        return view('Charity.indexCharityFinder');
+    }
+
+    public function getIndexAddCharity(){
+        return view('Charity.indexAddCharity');
+    }
+
+    public function getIndexAddCrowdSource(){
+        return view('Charity.indexAddCrowdSource');
     }
 }
