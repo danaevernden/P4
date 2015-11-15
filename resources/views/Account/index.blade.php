@@ -21,6 +21,16 @@
     Change Password
     <br>
     Change location
+    <br>
+    My Wishes
+    
+    @foreach($wishes as $wish)
+      <div>
+        <h2>{{$wish->charity}}</h2>
+
+      </div>
+    @endforeach
+
 
   </div>
 @stop

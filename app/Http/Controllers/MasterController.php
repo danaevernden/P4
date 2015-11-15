@@ -14,4 +14,14 @@ class MasterController extends Controller {
     public function getIndex() {
        return view('Master.index');
     }
+
+
+    public function getIndexPractice() {
+      $wish = new \App\Wish();
+      foreach($wish->all() as $wish){
+          echo $wish->charity;
+      }
+
+    }
+
 }

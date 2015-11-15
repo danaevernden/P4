@@ -16,8 +16,8 @@
       </div>
       <a href="/charityfinder" class="button">Find a Charity or Crowdsource</a>
       <br><br><br>
-      <a href="/addcharity" class="button">Log a Charity</a>
-      <a href="/addcrowdsource" class="button">Log  a CrowdSource</a>
+      <a href="/addcharity" class="button">Add a Charity</a>
+      <a href="/addcrowdsource" class="button">Add  a CrowdSource</a>
 
     </div>
 

@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/practice', 'MasterController@getIndexPractice');
 
 Route::get('/', 'MasterController@getIndex');
 
@@ -23,15 +24,24 @@ Route::get('/about', 'AboutController@getIndex');
 Route::get('/charity', 'CharityController@preIndex');
 Route::get('/charityfinder', 'CharityController@getIndexCharityFinder');
 Route::get('/addcharity', 'CharityController@getIndexAddCharity');
+Route::post('/addcharity', 'CharityController@postIndexAddCharity');
+
 Route::get('/addcrowdsource', 'CharityController@getIndexAddCrowdSource');
+Route::post('/addcrowdsource', 'CharityController@postIndexAddCrowdSource');
 
 
 Route::get('/newwish', 'NewWishController@preIndex');
 Route::get('/newwish/donation', 'NewWishController@getIndexDonation');
+Route::post('/newwish/donation', 'NewWishController@postIndexDonation');
+
 Route::get('/newwish/crowdsource', 'NewWishController@getIndexCrowdSource');
+Route::post('/newwish/crowdsource', 'NewWishController@postIndexCrowdSource');
+
 Route::get('/newwish/material', 'NewWishController@getIndexMaterial');
+Route::post('/newwish/material', 'NewWishController@postIndexMaterial');
 
 Route::get('/account', 'AccountController@getIndex');
+Route::get('/account/mywishes', 'AccountController@getIndexMyWishes');
 
 if(App::environment('local')) {
 

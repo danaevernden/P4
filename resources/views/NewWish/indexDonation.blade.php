@@ -16,33 +16,61 @@
       <form method='POST' action='/newwish/donation'>
           <input type='hidden' value='{{ csrf_token() }}' name='_token'>
           <fieldset>
-             <label for='numpara'>Charity</label>
-             <input type="text" id='numpara' name="numpara">
-             <br>
-             City
-             <!--validate on entry with a list of cities-->
-             <input type="text" id='numpara' name="numpara">
-             <br>
-             State
-             <!--either make a dropdown or validate on entry?-->
-             <input type="text" id='numpara' name="numpara">
-             <br>
-             Hashtags
-             <input type="text" id='numpara' name="numpara">
-             <Br>
-             Donation Amount Request
-             <input type="text" id='numpara' name="numpara">
-            <br>
-             Message
-             <input type="text" id='numpara' name="numpara">
-             <br>
-             Hashtag
-             <input type="text" id='numpara' name="numpara">
+            Charity:
+            <input
+              type='text'
+              id='Charity'
+              name='charity'
+              value='{{old('charity', 'The Human Fund')}}'
+            >
+            <br><br>Hashtags:
+             <input
+               type='text'
+               id='hashtags'
+               name='hashtags'
+               value='{{old('hashtags', 'Money for People, Seinfeld, The Strike, Festivus')}}'
+             >
+             <Br><br>Donation Amount Request:
+               <input
+                 type='integer'
+                 id='donation_amnt_request'
+                 name='donation_amnt_request'
+                 value='{{old('donation_amnt_request', '30')}}'
+               >
+            <br><br>Message:
+            <input
+              type='text'
+              id='message'
+              name='message'
+              value='{{old('message', 'Money for People is Money Well Spent.')}}'
+            >
+            <br><br>Wrapping Paper:
+            <input type="radio"
+            id="wrapping_paper_color"
+            name="wrapping_paper_color"
+            value="1"
+            checked><img src=/images/gift1.png></img>
 
+            <input type="radio"
+            id="wrapping_paper_color"
+            name="wrapping_paper_color"
+            value="2"><img src=/images/gift4.png></img>
 
-            <button type="submit" class="button">Generate</button>
+            <input type="radio"
+            id="wrapping_paper_color"
+            name="wrapping_paper_color"
+            value="3"><img src=/images/gift3.png></img>
+
+            <input type="radio"
+            id="wrapping_paper_color"
+            name="wrapping_paper_color"
+            value="4"><img src=/images/gift6.png></img>
+
+            <br><br>
+            <button type="submit" class="button">Search</button>
         </fieldset>
         </form>
+        <br><br>
       <a href="/newwish" class="button">Back</a>
   </div>
 @stop

@@ -17,6 +17,10 @@
 /*margin-left:15%;*/
 }
 
+.bigtextbox{
+  width:300px;
+  height:200px;
+}
 .titlelink{
   color:black;
 }
@@ -28,6 +32,7 @@
    font-family: 'Helvetica Neue',Helvetica, sans-serif;
   /*font-family: 'Open Sans Condensed', sans-serif; */
   margin-left:30px;
+  border-top:150px;
 }
 
 
