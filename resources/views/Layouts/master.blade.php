@@ -1,6 +1,11 @@
 <!doctype html>
 <html>
   <head>
+
+    @if(Session::get('flash_message') != null))
+        <div class='flash_message'>{{ Session::get('flash_message') }}</div>
+    @endif
+
       <meta charset='utf-8'>
       <link href="/css/style.css" type='text/css' rel='stylesheet'>
       <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>

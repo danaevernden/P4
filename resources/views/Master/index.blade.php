@@ -7,6 +7,7 @@
   </div>
 @stop
 
+
 @section('content')
   <div class="maincontent">
     X dollars have been donated to charity this holiday season!

@@ -11,23 +11,23 @@
   <div class="maincontent">
     <div class="wishform">
       Add a Crowdsource
-      <form method='POST' action='/addcharity'>
-          <input type='hidden' value='{{ csrf_token() }}' name='_token'>
-          <fieldset>
+      <form method='POST' action='/add/crowdsource'>
+        <input type='hidden' value='{{ csrf_token() }}' name='_token'>
+        <fieldset>
              Crowdsource:
              <input
-               type='title'
-               id='title'
-               name='title'
+               type='text'
+               id='name'
+               name='name'
                value='{{old('name', 'Children Lost Both Parents in Wreck')}}'
-             >
+             ></input>
              <br><br>City:
              <input
-               type='title'
-               id='title'
-               name='title'
+               type='text'
+               id='city'
+               name='city'
                value='{{old('city', 'Jackson')}}'
-             >
+             ></input>
              <br><br>State:
              <select name="state">
                  <option value="AL">Alabama</option>
@@ -83,29 +83,34 @@
                  <option value="WY">Wyoming</option>
                </select>
              <br><br>Detailed Description:
-             <input
-               type='title'
-               id='title'
-               name='title'
-               value='{{old('description', 'Raising funds for four children who
+
+               <!--value='{{old('description', 'Raising funds for four children who
                became orphans on Halloween - A Georgia State Troopers gracefully
                handled their evening with candy and movies and has set up a
                trust fund for the children')}}'
-             >
+             -->
+             <textarea
+             id='description'
+             name='description'
+             value='{{old('description', 'Hoping this will help!')}}'
+             ></textarea>
+
              <br><br>Website:
              <input
-               type='title'
-               id='title'
-               name='title'
+               type='text'
+               id='website'
+               name='website'
+               size='35'
                value='{{old('website', 'https://www.gofundme.com/WreckOnHalloween')}}'
-             >
+             ></input>
              <br><br>URL of Picture:
              <input
-               type='title'
-               id='title'
-               name='title'
+               type='text'
+               id='logo_or_pic'
+               name='logo_or_pic'
+               size='35'
                value='{{old('logo_or_pic', 'https://2dbdd5116ffa30a49aa8-c03f075f8191fb4e60e74b907071aee8.ssl.cf1.rackcdn.com/6621153_1446519689.6133.jpg')}}'
-             >
+             ></input>
              <br>
              <button type="submit" class="button">Submit</button>
          </fieldset>

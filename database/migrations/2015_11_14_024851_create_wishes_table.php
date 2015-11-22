@@ -25,6 +25,7 @@ class CreateWishesTable extends Migration
         # The rest of the fields...
         $table->string('donation_amnt_request');
         $table->string('wisher');
+        $table->string('material_gift');
         $table->string('charity');
         $table->string('hashtags');
         $table->text('message');
@@ -32,6 +33,11 @@ class CreateWishesTable extends Migration
         # FYI: We're skipping the 'tags' field for now; more on that later.
 
         });
+
+
+    #    Schema::table('wishes', function($table) {
+    #    $table->foreign('charity_id')->references('id')->on('charities');
+    #    });
     }
 
     /**

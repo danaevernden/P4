@@ -19,7 +19,7 @@
                Present:
                <input
                  type='text'
-                 id='Charity'
+                 id= 'charity'
                  name='charity'
                  value='{{old('charity', 'Selfie Stick')}}'
                >
@@ -31,12 +31,12 @@
                   value='{{old('hashtags', 'selfie stick, narcissism, love')}}'
                 >
                <br><br>Message:
-               <input
-                 type='text'
-                 name='message'
-                 class='bigtextbox'
-                 value='{{old('message', 'do not forget to buy this for me!!!!')}}'
-               >
+               <textarea
+               id='message'
+               name='message'
+               value='{{old('message', 'Hoping this will help!')}}'
+             ></textarea>
+
                <br><br>Wrapping Paper:
                <input type="radio"
                id="wrapping_paper_color"

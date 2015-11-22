@@ -23,22 +23,21 @@ Route::get('/about', 'AboutController@getIndex');
 
 Route::get('/charity', 'CharityController@preIndex');
 Route::get('/charityfinder', 'CharityController@getIndexCharityFinder');
-Route::get('/addcharity', 'CharityController@getIndexAddCharity');
-Route::post('/addcharity', 'CharityController@postIndexAddCharity');
+Route::get('/add/charity', 'CharityController@getIndexCharity');
+Route::post('/add/charity', 'CharityController@postIndexCharity');
 
-Route::get('/addcrowdsource', 'CharityController@getIndexAddCrowdSource');
-Route::post('/addcrowdsource', 'CharityController@postIndexAddCrowdSource');
+Route::get('/add/crowdsource', 'CharityController@getIndexCrowdSource');
+Route::post('/add/crowdsource', 'CharityController@postIndexCrowdSource');
 
+Route::get('/newwish', 'WishController@preIndex');
+Route::get('/newwish/donation', 'WishController@getIndexDonation');
+Route::post('/newwish/donation', 'WishController@postIndexDonation');
 
-Route::get('/newwish', 'NewWishController@preIndex');
-Route::get('/newwish/donation', 'NewWishController@getIndexDonation');
-Route::post('/newwish/donation', 'NewWishController@postIndexDonation');
+Route::get('/newwish/crowdsource', 'WishController@getIndexCrowdSource');
+Route::post('/newwish/crowdsource', 'WishController@postIndexCrowdSource');
 
-Route::get('/newwish/crowdsource', 'NewWishController@getIndexCrowdSource');
-Route::post('/newwish/crowdsource', 'NewWishController@postIndexCrowdSource');
-
-Route::get('/newwish/material', 'NewWishController@getIndexMaterial');
-Route::post('/newwish/material', 'NewWishController@postIndexMaterial');
+Route::get('/newwish/material', 'WishController@getIndexMaterial');
+Route::post('/newwish/material', 'WishController@postIndexMaterial');
 
 Route::get('/account', 'AccountController@getIndex');
 Route::get('/account/mywishes', 'AccountController@getIndexMyWishes');

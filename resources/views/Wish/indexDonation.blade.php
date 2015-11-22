@@ -38,12 +38,11 @@
                  value='{{old('donation_amnt_request', '30')}}'
                >
             <br><br>Message:
-            <input
-              type='text'
-              id='message'
-              name='message'
-              value='{{old('message', 'Money for People is Money Well Spent.')}}'
-            >
+            <textarea
+            id='message'
+            name='message'
+            value='{{old('message', 'Hoping this will help!')}}'
+          ></textarea>
             <br><br>Wrapping Paper:
             <input type="radio"
             id="wrapping_paper_color"
@@ -67,7 +66,7 @@
             value="4"><img src=/images/gift6.png></img>
 
             <br><br>
-            <button type="submit" class="button">Search</button>
+            <button type="submit" class="button">Submit</button>
         </fieldset>
         </form>
         <br><br>

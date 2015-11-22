@@ -11,23 +11,25 @@
   <div class="maincontent">
     <div class="wishform">
       Add a Charity
-      <form method='POST' action='/charityfinder'>
+      <form class='charityform' method='POST' action='/add/charity'>
           <input type='hidden' value='{{ csrf_token() }}' name='_token'>
           <fieldset>
             Charity:
             <input
               type='text'
-              id='title'
-              name='title'
+              id='name'
+              name='name'
               value='{{old('name', 'The Human Fund')}}'
             >
             <br><br>Mission Statement:
-            <input
-              type='text'
-              id='mission'
-              name='mission'
-              value='{{old('mission', 'Money for People')}}'
-            >
+            <textarea
+            id='mission'
+            name='mission'
+            value='{{old('mission', 'Hoping this will help!')}}'
+            ></textarea>
+
+            <!--  value='{{old('mission', 'Money for People')}}'
+            -->
             <br><br>Year Founded:
             <input
               type='text'
@@ -97,22 +99,25 @@
               	<option value="WY">Wyoming</option>
               </select>
             <br><br>Detailed Description:
-            <input
-              type='text'
-              id='description'
-              name='description'
-              value='{{ old('description', 'The Human Fund is a fake charity
+            <textarea
+            id='description'
+            name='description'
+            value='{{old('mission', 'Hoping this will help!')}}'
+            ></textarea>
+
+            <!--  value='{{ old('description', 'The Human Fund is a fake charity
               used by George Costanza in the sitcom Seinfeld during the episode
               The Strike. After gettin a similar gift from his friend Tim Whatley,
               George gives out cards to his co-workers stating that a donation
                has been made to a charity called The Human Fund with the slogan
                Money for People.')}}'
-            >
+            -->
             <br><br>Website:
             <input
               type='text'
               id='website'
               name='website'
+              size='35'
               value='{{ old('website', 'http://festivusweb.com/festivus-the-human-fund.htm')}}'
             >
             <br><br>URL of Logo:
@@ -120,6 +125,7 @@
               type='text'
               id='logo_or_pic'
               name='logo_or_pic'
+              size='35'
               value='{{ old('logo_or_pic', 'http://s3-2.kiva.org/img/w800/456061.jpg')}}'
             >
             <br>

@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Charity extends Model
 {
     //
-    return $this->hasMany('\App\Wish');
+  //  return $this->hasMany('\P4\Wish');
 }

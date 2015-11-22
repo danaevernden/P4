@@ -21,61 +21,59 @@ class CharityController extends Controller {
         return view('Charity.indexCharityFinder');
     }
 
-    public function getIndexAddCharity(){
-        return view('Charity.indexAddCharity');
-    }
-
-    public function getIndexAddCrowdSource(){
-        return view('Charity.indexAddCrowdSource');
+    public function getIndexCharity(){
+        return view('Charity.indexCharity');
     }
 
     /*responds to requests to POST /new charity*/
-    public function postIndexAddCharity(Request $request) {
+    public function postIndexCharity(Request $request) {
       $this->validate( $request, [
         'name' => 'required|min:3',
         'website' => 'required|min:5',
         ]);
 
-        $charity = new \App\Charity();
+        $charity = new \P4\Charity();
         $charity->name = $request->name;
         $charity->description = $request->description;
         $charity->city = $request->city;
         $charity->state = $request->state;
-        $charity->hashtags = $request->hashtags;
         $charity->mission = $request->mission;
+    #    $charity->hashtags = $request->hashtags;
         $charity->website = $request->website;
         $charity->year_founded = $request->year_founded;
-        $charity->charity_or_crowdsource = 'charity';
-        $charity->logo_or_pic = $request->logo_or_pic;
-
-        $charity->save();
-
-    /*    add this once i understand it better
-    \Session::flash('flash_message', 'Thank you! That charity is now added!');
-        return redirect('/charities'); */
-    }
-
-    /*responds to requests to POST /new charity*/
-    public function postIndexAddCrowdsource(Request $request) {
-      $this->validate( $request, [
-        'name' => 'required|min:3',
-        'website' => 'required|min:5',
-        ]);
-
-        $charity = new \App\Charity();
-        $charity->name = $request->name;
-        $charity->description = $request->description;
-        $charity->city = $request->city;
-        $charity->state = $request->state;
-        $charity->hashtags = $request->hashtags;
-        $charity->website = $request->website;
         $charity->charity_or_crowdsource = 'crowdsource';
         $charity->logo_or_pic = $request->logo_or_pic;
 
         $charity->save();
+        \Session::flash('flash_message', 'Thank you! That charity is now added!');
+        return redirect('/charity');
+    }
 
-    /*    add this once i understand it better
-    \Session::flash('flash_message', 'Thank you! That charity is now added!');
-        return redirect('/charities'); */
+
+
+      public function getIndexCrowdSource(){
+        return view('Charity.indexCrowdSource');
       }
+
+    /*responds to requests to POST /new charity*/
+    public function postIndexCrowdSource(Request $request) {
+
+      $this->validate( $request, [
+        'name' => 'required|min:3',
+        'website' => 'required|min:5',
+        ]);
+        $charity = new \P4\Charity();
+        $charity->name = $request->name;
+        $charity->description = $request->description;
+        $charity->city = $request->city;
+        $charity->state = $request->state;
+  #      $charity->hashtags = $request->hashtags;
+        $charity->website = $request->website;
+        $charity->charity_or_crowdsource = 'crowdsource';
+        $charity->logo_or_pic = $request->logo_or_pic;
+        $charity->save();
+        \Session::flash('flash_message', 'Thank you! Your CrowdSource is now added!');
+        return redirect('/charity');
+      }
+
 }

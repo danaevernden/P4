@@ -26,7 +26,7 @@
              >
              <br><br>Hashtags:
               <input
-                type='text'
+                type='textarea'
                 id='hashtags'
                 name='hashtags'
                 value='{{old('hashtags', 'children, cancer, wigs')}}'
@@ -39,12 +39,12 @@
                   value='{{old('donation_amnt_request', '30')}}'
                 >
              <br><br>Message:
-             <input
-               type='text'
+               <textarea
                id='message'
                name='message'
                value='{{old('message', 'Hoping this will help!')}}'
-             >
+             ></textarea>
+
              <br><br>Wrapping Paper:
              <input type="radio"
              id="wrapping_paper_color"
