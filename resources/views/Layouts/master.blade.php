@@ -27,19 +27,33 @@
     <div class="ribbon">
     <!--  <div class="ribbon-stitches-top">
     </div> -->
+
     <strong class="ribbon-content">
       <h1>
+      @if(Auth::check())
         <a href="/about">About</a>
          -
-        <a href="/charity">Find a Charity</a>
+        <a href="/charity">Charities</a>
          -
-        <a href="/newwish">Log a Wish</a>
+        <a href="/newwish">Log a Wish</a> <!--change-->
         -
        <a href="/account">My Account</a>
         -
-       <a href="/login">Log in</a>
+       <a href="/logout">Log Out</a>
+      @else
+      <a href="/about">About</a>
+       -
+      <a href="/charity">Charities</a>
+       -
+      <a href="/newwish">Log a Wish</a>
+      -
+     <a href="/account">Register</a>
+      -
+     <a href="/login">Log In</a>
+     @endif
       </h1>
     </strong>
+
     <div class="ribbon-stitches-bottom">
     </div>
   </div>

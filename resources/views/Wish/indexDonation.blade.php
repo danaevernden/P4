@@ -17,12 +17,15 @@
           <input type='hidden' value='{{ csrf_token() }}' name='_token'>
           <fieldset>
             Charity:
-            <input
-              type='text'
+            <select
               id='Charity'
-              name='charity'
-              value='{{old('charity', 'The Human Fund')}}'
-            >
+              name='charity'>
+            @foreach($charities_for_dropdown as $charity_id => $charity_name)
+            <option value='{{charity_id}}' {{$charity_name}} </option>
+            @endforeach
+            <!--value='{{old('charity', 'The Human Fund')}}'
+            -->
+          </select>
             <br><br>Hashtags:
              <input
                type='text'

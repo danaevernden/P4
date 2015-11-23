@@ -17,9 +17,6 @@ class WishController extends Controller {
         return view('Wish.preindex');
     }
 
-    public function getIndexDonation(){
-        return view('Wish.indexDonation');
-    }
 
     public function getIndexCrowdSource(){
         return view('Wish.indexCrowdSource');
@@ -28,6 +25,18 @@ class WishController extends Controller {
         return view('Wish.indexMaterial');
     }
 
+    public function getIndexDonation(){
+      $charity = \P4\Charity::orderby('name','ASC')->get();
+
+      $charities_for_dropdown = [];
+      foreach($charities as $charity){
+          $charities_for_dropdown[$charity->id] = $charity->name;
+      }
+      dump($charities_for_dropdown);
+        return view('Wish.indexDonation')->with(['charities_for_dropdown' => $charities_for_dropdown]);
+    }
+
+
     /*responds to requests to POST /newwish/donation*/
         public function postIndexDonation(Request $request) {
           $this->validate( $request, [
@@ -35,13 +44,12 @@ class WishController extends Controller {
             ]);
 
             $wish = new \P4\Wish();
-            $wish->charity = $request->charity;
+            $wish->charity_id = $request->charity_id;
             $wish->donation_amnt_request = $request->donation_amnt_request;
-        #    $wish->wisher = $request->wisher;
             $wish->hashtags = $request->hashtags;
             $wish->message = $request->message;
             $wish->wrapping_paper_color = $request->wrapping_paper_color;
-
+            $wish->user_id = $request->user_id;
             $wish->save();
             \Session::flash('flash_message', 'Thank you! Your wish is now added!');
 

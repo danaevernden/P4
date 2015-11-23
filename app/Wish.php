@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Wish extends Model
 {
     //
-  //  return $this->belongsTo('\P4\Charity');
+  public function charity() {
+  return $this->belongsTo('\P4\Charity');
+  }
+
+  public function user() {
+    return $this->belongsTo('\P4\User');
+  }
+
 }

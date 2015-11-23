@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
           'city' => 'Cambridge',
           'state' => 'Massachusetts',
           'email' => 'jill@harvard.edu',
-          'password' => 'helloworld',
+          'password' => \Hash::make('helloworld'),
       ]);
 
         DB::table('users')->insert([
@@ -30,7 +30,7 @@ class UsersTableSeeder extends Seeder
             'city' => 'New York City',
             'state' => 'NewYork',
             'email' => 'draper@sterlingcooperdraperpryce.com',
-            'password' => 'helloworlddon',
+            'password' => \Hash::make('helloworlddon'),
         ]);
 
           DB::table('users')->insert([
@@ -41,7 +41,7 @@ class UsersTableSeeder extends Seeder
               'city' => 'Northampton',
               'state' => 'Massachusetts',
               'email' => 'chapman@oitnb.com',
-              'password' => 'helloworldpiper',
+              'password' => Hash::make('helloworldpiper'),
           ]);
 
             DB::table('users')->insert([
@@ -52,7 +52,7 @@ class UsersTableSeeder extends Seeder
                 'city' => 'Newport',
                 'state' => 'Rhode Island',
                 'email' => 'tina@bobsburgers.com',
-                'password' => 'helloworldtina',
+                'password' => Hash::make('helloworldtina'),
             ]);
 
     }

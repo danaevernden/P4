@@ -17,8 +17,14 @@ class CharityController extends Controller {
     }
 
     public function getIndexCharityFinder(){
-      $charities = \App\Charity::orderBy('id','DESC')->get();
-        return view('Charity.indexCharityFinder');
+      $charities = \P4\Charity::orderBy('id','DESC')->get();
+        return view('Charity.indexCharityFinder')->with('charities', $charities);
+    }
+
+    public function postIndexCharityFinder(Request $request){
+  #    this isn't working >>>
+      $charities = \P4\Charity::find($request->charity_or_crowdsource)->get();
+      return view('Charity.indexCharityFinder')->with('charities', $charities);
     }
 
     public function getIndexCharity(){

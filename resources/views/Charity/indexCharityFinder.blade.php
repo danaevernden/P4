@@ -18,14 +18,14 @@
           <fieldset>
              <label for='numpara'>Search:</label>
              <input type="text" id='numpara' name="numpara">
-             Type:
-             <select name="numWords">
+        <!--     Type:
+             <select name="type">
                <option value="city">city</option>
                <option value="state">state</option>
                <option value="hashtag">hashtag</option>
-             </select>
+             </select> -->
              Charity or Crowdsource:
-             <select name="numWords">
+             <select name="charity_or_crowdsource">
                <option value="charity">charity</option>
                <option value="crowdsource">crowdsource</option>
              </select>
@@ -34,7 +34,35 @@
           </fieldset>
           </form>
           <br>
-          <a href="/charity" class="button">Back</a>    </div>
+          <a href="/charity" class="button">Back</a>
+        </div>
+        <h1>All Charities and CrowdSources</h1>
+       @foreach($charities as $charity)
+           <div>
+               <h2>{{ $charity->name }}</h2>
+               <img src='{{ $charity->logo_or_pic }}'>
+               @if ($charity->mission !== 0)
+                  <br><strong>Mission:</strong>
+                  {{ $charity->mission}}
+               @endif
+
+               @if ($charity->city !== 0)
+               <br><strong>Location:</strong>
+               {{ $charity->city}}, {{ $charity->state}}
+               @endif
+
+               @if ($charity->year_founded !== 0)
+                  <br><strong>Year Founded:</strong>
+                  {{ $charity->year_founded}}
+              @endif
+              
+               @if ($charity->description !== '')
+                  <br><strong>Description:</strong>
+                  {{ $charity->description}}
+               @endif
+               <a href='{{$charity->website}}'>Website</a>
+           </div>
+       @endforeach
       </div>
   </div>
 @stop

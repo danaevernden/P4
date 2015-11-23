@@ -24,20 +24,19 @@ class CreateWishesTable extends Migration
 
         # The rest of the fields...
         $table->string('donation_amnt_request');
-        $table->string('wisher');
+  #      $table->string('wisher');
         $table->string('material_gift');
-        $table->string('charity');
         $table->string('hashtags');
         $table->text('message');
         $table->integer('wrapping_paper_color');
         # FYI: We're skipping the 'tags' field for now; more on that later.
-
+        $table->integer('charity_id')->unsigned();
         });
 
+        Schema::table('wishes', function($table) {
+       $table->foreign('charity_id')->references('id')->on('charities');
+        });
 
-    #    Schema::table('wishes', function($table) {
-    #    $table->foreign('charity_id')->references('id')->on('charities');
-    #    });
     }
 
     /**
@@ -47,6 +46,14 @@ class CreateWishesTable extends Migration
      */
     public function down()
     {
+      Schema::table('wishes', function (Blueprint $table) {
+
+          # ref: http://laravel.com/docs/5.1/migrations#dropping-indexes
+          # combine tablename + fk field name + the word "foreign"
+          $table->dropForeign('wishes_charity_id_foreign');
+
+          $table->dropColumn('charity_id');
+        });
         Schema::drop('wishes');
     }
 }

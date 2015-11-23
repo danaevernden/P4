@@ -12,14 +12,23 @@ class AccountController extends Controller {
     }
 
     public function getIndex() {
-        $wishes = \App\Wish::orderBy('id','DESC')->get();
+    //    $wishes = \App\Wish::orderBy('id','DESC')->get();
           //   return view('Account.index')->with('wishes', $wishes);
-          dump($wishes);
+      //    dump($wishes);
     }
 
 
     public function getIndexMyWishes() {
-             return view('Account.indexMyWishes');
+
+        $wishes = \P4\Wish::with('charity')->get();
+
+      //  foreach($wishes as $wish) {
+      //    echo $wish->charity->name.' has the following wishes: '.$wish->donation_amnt_request.' from '.$wish->wisher.'<br>';
+      //  }
+
+      //  dump($wishes->toArray());
+             return view('Account.indexMyWishes')->with(
+             ['wishes'=>$wishes, 'charities' => $charities]);
     }
 //*need to figure out how to connect this*//
     public function postIndexEditWish(Request $request) {

@@ -23,24 +23,54 @@ Route::get('/about', 'AboutController@getIndex');
 
 Route::get('/charity', 'CharityController@preIndex');
 Route::get('/charityfinder', 'CharityController@getIndexCharityFinder');
+Route::post('/charityfinder', 'CharityController@postIndexCharityFinder');
+
+Route::get('/newwish', 'WishController@preIndex');
+
+/*users can't access these pages when logged out*/
+Route::group(['middleware'=> 'auth'], function() {
+
+Route::get('/newwish/donation', 'WishController@getIndexDonation');
+Route::post('/newwish/donation', 'WishController@postIndexDonation');
+
+Route::get('/newwish/material', 'WishController@getIndexMaterial');
+Route::post('/newwish/material', 'WishController@postIndexMaterial');
+
+Route::get('/newwish/crowdsource', 'WishController@getIndexCrowdSource');
+Route::post('/newwish/crowdsource', 'WishController@postIndexCrowdSource');
+
+Route::get('/account', 'AccountController@getIndex');
+Route::get('/account/mywishes', 'AccountController@getIndexMyWishes');
+
 Route::get('/add/charity', 'CharityController@getIndexCharity');
 Route::post('/add/charity', 'CharityController@postIndexCharity');
 
 Route::get('/add/crowdsource', 'CharityController@getIndexCrowdSource');
 Route::post('/add/crowdsource', 'CharityController@postIndexCrowdSource');
 
-Route::get('/newwish', 'WishController@preIndex');
-Route::get('/newwish/donation', 'WishController@getIndexDonation');
-Route::post('/newwish/donation', 'WishController@postIndexDonation');
+});
 
-Route::get('/newwish/crowdsource', 'WishController@getIndexCrowdSource');
-Route::post('/newwish/crowdsource', 'WishController@postIndexCrowdSource');
 
-Route::get('/newwish/material', 'WishController@getIndexMaterial');
-Route::post('/newwish/material', 'WishController@postIndexMaterial');
 
-Route::get('/account', 'AccountController@getIndex');
-Route::get('/account/mywishes', 'AccountController@getIndexMyWishes');
+/*users can't access these pages when logged in*/
+
+
+# Show login form
+Route::get('/login', 'Auth\AuthController@getLogin');
+
+# Process login form
+Route::post('/login', 'Auth\AuthController@postLogin');
+
+# Process logout
+Route::get('/logout', 'Auth\AuthController@getLogout');
+
+# Show registration form
+Route::get('/register', 'Auth\AuthController@getRegister');
+
+# Process registration form
+Route::post('/register', 'Auth\AuthController@postRegister');
+
+
 
 if(App::environment('local')) {
 
@@ -88,5 +118,21 @@ Route::get('/debug', function() {
     }
 
     echo '</pre>';
+
+});
+
+Route::get('/confirm-login-worked', function() {
+
+    # You may access the authenticated user via the Auth facade
+    $user = Auth::user();
+
+    if($user) {
+        echo 'You are logged in.';
+        dump($user->toArray());
+    } else {
+        echo 'You are not logged in.';
+    }
+
+    return;
 
 });
