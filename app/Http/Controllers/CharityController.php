@@ -31,6 +31,11 @@ class CharityController extends Controller {
         return view('Charity.indexCharity');
     }
 
+    public function getEditCharity($id = null) {
+        $charity = \P4\Charity::find($id);
+        return view('Charity.editCharity')->with(['charity'=>$charity]);
+      }
+
     /*responds to requests to POST /new charity*/
     public function postIndexCharity(Request $request) {
       $this->validate( $request, [

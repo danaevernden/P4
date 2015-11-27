@@ -10,43 +10,47 @@
 @section('content')
   <div class="maincontent">
     <div class="wishform">
-      Add a Charity
-      <form class='charityform' method='POST' action='/add/charity'>
+      Edit Charity or Crowdsource
+      <form class='charityeditform' method='POST' action='/charity/edit'>
           <input type='hidden' value='{{ csrf_token() }}' name='_token'>
           <fieldset>
-          
+            <input type='hidden' name='id' value='{{ $charity->id }}'>
             Charity:
             <input
               type='text'
               id='name'
               name='name'
-              value='{{old('name', 'The Human Fund')}}'
+              value='{{$charity->name}}'
             >
-            <br><br>Mission Statement:
-            <textarea
-            id='mission'
-            name='mission'
-            value='{{old('mission', 'Hoping this will help!')}}'
-            ></textarea>
+            @if ($charity->charity_or_crowdsource == 'charity')
+              <br><br>Mission Statement:
+              <textarea
+              id='mission'
+              name='mission'
+              value='{{$charity->mission}}'>
+              {{$charity->mission}}
+              </textarea>
 
-            <!--  value='{{old('mission', 'Money for People')}}'
-            -->
-            <br><br>Year Founded:
-            <input
-              type='text'
-              id='year_founded'
-              name='year_founded'
-              value='{{ old('year_founded', '1997')}}'
-            >
+                <!--  value='{{old('mission', 'Money for People')}}'
+                -->
+                <br><br>Year Founded:
+                <input
+                  type='text'
+                  id='year_founded'
+                  name='year_founded'
+                  value='{{$charity->year_founded}}'
+                >
+            @endif
             <br><br>City:
             <input
               type='text'
               id='city'
               name='city'
-              value='{{ old('city', 'New York City')}}'
+              value='{{$charity->city}}'
             >
             <br><br>State:
             <select name="state">
+              <!--fiture out how to select the correct state-->
               	<option value="AL">Alabama</option>
               	<option value="AK">Alaska</option>
               	<option value="AZ">Arizona</option>
@@ -103,23 +107,16 @@
             <textarea
             id='description'
             name='description'
-            value='{{old('mission', 'Hoping this will help!')}}'
-            ></textarea>
+            value='{{$charity->description}}'
+            >{{$charity->description}}</textarea>
 
-            <!--  value='{{ old('description', 'The Human Fund is a fake charity
-              used by George Costanza in the sitcom Seinfeld during the episode
-              The Strike. After gettin a similar gift from his friend Tim Whatley,
-              George gives out cards to his co-workers stating that a donation
-               has been made to a charity called The Human Fund with the slogan
-               Money for People.')}}'
-            -->
             <br><br>Website:
             <input
               type='text'
               id='website'
               name='website'
               size='35'
-              value='{{ old('website', 'http://festivusweb.com/festivus-the-human-fund.htm')}}'
+              value='{{$charity->website}}'
             >
             <br><br>URL of Logo:
             <input
@@ -127,14 +124,14 @@
               id='logo_or_pic'
               name='logo_or_pic'
               size='35'
-              value='{{ old('logo_or_pic', 'http://s3-2.kiva.org/img/w800/456061.jpg')}}'
+              value='{{$charity->logo_or_pic}}'
             >
             <br>
-            <button type="submit" class="button">Submit</button>
+            <button type="submit" class="button">Save</button>
          </fieldset>
        </form>
        <br>
-       <a href="/charity" class="button">Back</a>
+       <a href="/charityfinder" class="button">Back</a>
     </div>
   </div>
 @stop

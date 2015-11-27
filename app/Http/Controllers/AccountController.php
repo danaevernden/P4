@@ -11,15 +11,15 @@ class AccountController extends Controller {
         # Put anything here that should happen before any of the other actions
     }
 
-    public function getIndex() {
+    public function getIndexMyWishes() {
     //    $wishes = \App\Wish::orderBy('id','DESC')->get();
           //   return view('Account.index')->with('wishes', $wishes);
       //    dump($wishes);
     }
 
 
-    public function getIndexMyWishes() {
-
+    public function getIndex() {
+      $user = \Auth::user();
         $wishes = \P4\Wish::with('charity')->get();
 
       //  foreach($wishes as $wish) {
@@ -27,18 +27,45 @@ class AccountController extends Controller {
       //  }
 
       //  dump($wishes->toArray());
-             return view('Account.indexMyWishes')->with(
-             ['wishes'=>$wishes, 'charities' => $charities]);
+             return view('Account.index')->with(
+             ['wishes'=>$wishes, 'user'=>$user]);
+    }
+
+    public function getEdit($id = null) {
+        $wish = \P4\Wish::find($id);
+        $user=\Auth::user();
+          if(is_null($wish)) {
+            return view('Account.editUser')->with(['user'=>$user]);
+          }
+          else{
+            return view('Account.edit')->with(['wish'=>$wish]);
+        }
+      }
+
+    public function getEditUser($id = null){
+      $user =\Auth::user();
+      return view('Account.editUser')->with(['user'=>$user]);
+    }
+
+    public function postEditUser(Request $request){
+      $user =\Auth::user();
+      $user->first_name = $request->first_name;
+      $user->last_name = $request->last_name;
+      $user->city = $request->city;
+      $user->state = $request->state;
+      $user->save();
+      \Session::flash('flash_message','Your user information was updated.');
+      return redirect('\account');
     }
 //*need to figure out how to connect this*//
-    public function postIndexEditWish(Request $request) {
+    public function postEdit(Request $request) {
       $this->validate( $request, [
-        'name' => 'required|min:3',
+    #    'name' => 'required|min:3',
         'website' => 'required|min:5',
         ]);
 
         $wish = \App\Wish::find($request->id);
-        $wish->charity -> $request->charity;
+      #  $wish->charity -> $request->charity;
         $wish->donation_amnt_request = $request->donation_amnt_request;
         $wish->wisher = $request->wisher;
         $wish->hashtags = $request->hashtags;
@@ -46,18 +73,13 @@ class AccountController extends Controller {
         $wish->wrapping_paper_color = $request->wrapping_paper_color;
 
         $wish->save();
+    \Session::flash('flash_message','Your wish was updated.');
+    return redirect('\account');
+    return view('Account.editUser')->with(['user'=>$user]);
 
-    /*    add this once i understand it better
-    \Session::flash('flash_message','Your book was updated.');
-    return redirect('/books/edit/'.$request->id); */
     }
     //*responds to viewing details of wish//
-    public function getEdit($id = null){
-      $wish = \App\Wish::find($id);
-      if(is_null($wish)) {
-          \Session::flash('flash_message','Wish not found.');
-          return redirect('\books');
-      }
 
-    }
+
+
 }

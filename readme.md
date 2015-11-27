@@ -1,8 +1,12 @@
 bugs to fix
--bug in myaccount
+-add delete feature to mywishes
+-add email feature
+-add reset password feature
+-allow CRUD to charities for only users that added charity?
+-make CSS pretty
 -digital ocean
 -implement password resets
--added in charity dropdown - need to debug
+-added in charity dropdown - need to debug when submitting
 
 
 

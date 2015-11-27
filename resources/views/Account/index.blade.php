@@ -9,28 +9,38 @@
 
 @section('content')
   <div class="maincontent">
-    Username:
+    <br><br><br><br>
+    <strong>First Name:</strong>
+      {{$user->first_name}}
     <br>
-    First Name:
+    <strong>Last Name:</strong>
+    {{$user->last_name}}
     <br>
-    Last Name:
-    City:
+    <strong>City:</strong>
+    {{$user->city}}
     <br>
-    State:
+    <strong>State:</strong>
+    {{$user->state}}
     <br>
     Change Password
+    <br><br>
+    <a href='/account/edit/user' class="button">
+    Edit Account Information</a>
     <br>
-    Change location
-    <br>
-    My Wishes
-    
+    <h1>My Wishes</h1>
+
     @foreach($wishes as $wish)
-      <div>
-        <h2>{{$wish->charity}}</h2>
-
-      </div>
+        <strong>Charity:</strong>
+        <br>
+        <strong>Donation Amount:</strong> {{$wish->donation_amnt_request}}
+        <br>
+      <strong>Message:</strong> {{$wish->message}}
+        <br><br>
+        <input type='hidden' name='id' value='{{ $wish->id }}'>
+        <a href='/account/edit/{{$wish->id}}' class="button">Edit</a>
+        <br><br>
     @endforeach
-
+  </form>
 
   </div>
 @stop

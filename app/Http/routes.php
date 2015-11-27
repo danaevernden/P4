@@ -24,7 +24,8 @@ Route::get('/about', 'AboutController@getIndex');
 Route::get('/charity', 'CharityController@preIndex');
 Route::get('/charityfinder', 'CharityController@getIndexCharityFinder');
 Route::post('/charityfinder', 'CharityController@postIndexCharityFinder');
-
+Route::get('/charity/edit/{id?}', 'CharityController@getEditCharity');
+Route::post('charity/edit','CharityController@postEditCharity');
 Route::get('/newwish', 'WishController@preIndex');
 
 /*users can't access these pages when logged out*/
@@ -40,8 +41,10 @@ Route::get('/newwish/crowdsource', 'WishController@getIndexCrowdSource');
 Route::post('/newwish/crowdsource', 'WishController@postIndexCrowdSource');
 
 Route::get('/account', 'AccountController@getIndex');
-Route::get('/account/mywishes', 'AccountController@getIndexMyWishes');
-
+Route::get('/account/edit/{id?}', 'AccountController@getEdit');
+Route::get('/account/edit/user','AccountController@getEditUser');
+Route::post('/account/edit','AccountController@postEdit');
+Route::post('/account/edit/user','AccountController@postEditUser');
 Route::get('/add/charity', 'CharityController@getIndexCharity');
 Route::post('/add/charity', 'CharityController@postIndexCharity');
 

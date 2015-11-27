@@ -34,7 +34,7 @@
 .maincontent{
    font-family: 'Helvetica Neue',Helvetica, sans-serif;
   /*font-family: 'Open Sans Condensed', sans-serif; */
-  margin-left:30px;
+  margin-left:150px;
   border-top:150px;
 }
 
@@ -93,6 +93,8 @@ Flash message
     left:0;
     background-color:yellow;
     font-weight:bold;
+    font-family: 'Helvetica Neue',Helvetica, sans-serif;
+
 }
 
 /*button*/
