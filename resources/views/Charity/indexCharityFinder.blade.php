@@ -10,7 +10,7 @@
 @section('content')
   <div class="maincontent">
     <div class="wishform">
-      <div class="preWishTitle2">
+      <div class="CharityFinder">
         Search for a Charity or Crowdsource
       </div>
       <form method='POST' action='/charityfinder'>
@@ -40,7 +40,7 @@
           @foreach($charities as $charity)
               <div>
                   <h2>{{ $charity->name }}</h2>
-                  <img src='{{ $charity->logo_or_pic }}'>
+                  <img class='CharityFinderimg' src='{{ $charity->logo_or_pic }}'>
                @if ($charity->mission !== 0)
                   <br><strong>Mission:</strong>
                   {{ $charity->mission}}

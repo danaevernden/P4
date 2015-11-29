@@ -74,9 +74,8 @@
             <img src=/images/gift6.png></img>
             <br><br>
             <button type="save" class="button">Save</button>
-
-
-
+            <a href='/account/delete/{{$wish->id}}' class="button">
+            Delete Wish</a>
 
         </fieldset>
         </form>

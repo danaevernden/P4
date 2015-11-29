@@ -30,9 +30,9 @@
     <h1>My Wishes</h1>
 
     @foreach($wishes as $wish)
-        <strong>Charity:</strong>
+        <strong>Charity:</strong> {{$wish->charity->name}}
         <br>
-        <strong>Donation Amount:</strong> {{$wish->donation_amnt_request}}
+        <strong>Donation Amount:</strong> ${{$wish->donation_amnt_request}}
         <br>
       <strong>Message:</strong> {{$wish->message}}
         <br><br>
@@ -41,6 +41,10 @@
         <br><br>
     @endforeach
   </form>
+  <!--add email functionality here-->
+  <br>
+  <a href='/' class="button">
+  Email Wishes</a>
 
   </div>
 @stop

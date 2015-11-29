@@ -4,6 +4,7 @@ namespace P4\Http\Controllers;
 #use P3\Http\Controllers\Controller;
 use P4\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Mail;
 
 class AccountController extends Controller {
 
@@ -20,8 +21,7 @@ class AccountController extends Controller {
 
     public function getIndex() {
       $user = \Auth::user();
-        $wishes = \P4\Wish::with('charity')->get();
-
+        $wishes = \P4\Wish::with('charity')->where('user_id','=',\Auth::user()->id)->get();
       //  foreach($wishes as $wish) {
       //    echo $wish->charity->name.' has the following wishes: '.$wish->donation_amnt_request.' from '.$wish->wisher.'<br>';
       //  }
@@ -31,16 +31,6 @@ class AccountController extends Controller {
              ['wishes'=>$wishes, 'user'=>$user]);
     }
 
-    public function getEdit($id = null) {
-        $wish = \P4\Wish::find($id);
-        $user=\Auth::user();
-          if(is_null($wish)) {
-            return view('Account.editUser')->with(['user'=>$user]);
-          }
-          else{
-            return view('Account.edit')->with(['wish'=>$wish]);
-        }
-      }
 
     public function getEditUser($id = null){
       $user =\Auth::user();
@@ -55,8 +45,29 @@ class AccountController extends Controller {
       $user->state = $request->state;
       $user->save();
       \Session::flash('flash_message','Your user information was updated.');
-      return redirect('\account');
+      return redirect('/account');
     }
+    public function getdeleteWish($id = null){
+        $wish = \P4\Wish::find($id);
+        return view('Account.deleteWish')->with(['wish'=>$wish]);
+    }
+    public function postdeleteWish($id = null){
+      $wish = \P4\Wish::find($id);
+      $wish->delete();
+      \Session::flash('flash_message','Your wish was deleted.');
+      return redirect('/account');
+    }
+    public function getEdit($id = null) {
+        $wish = \P4\Wish::find($id);
+        $user=\Auth::user();
+          if(is_null($wish)) {
+            return view('Account.editUser')->with(['user'=>$user]);
+          }
+          else{
+            return view('Account.edit')->with(['wish'=>$wish]);
+        }
+      }
+
 //*need to figure out how to connect this*//
     public function postEdit(Request $request) {
       $this->validate( $request, [
@@ -64,7 +75,7 @@ class AccountController extends Controller {
         'website' => 'required|min:5',
         ]);
 
-        $wish = \App\Wish::find($request->id);
+        $wish = \P4\Wish::find($request->id);
       #  $wish->charity -> $request->charity;
         $wish->donation_amnt_request = $request->donation_amnt_request;
         $wish->wisher = $request->wisher;
@@ -74,12 +85,20 @@ class AccountController extends Controller {
 
         $wish->save();
     \Session::flash('flash_message','Your wish was updated.');
-    return redirect('\account');
+    return redirect('/account');
     return view('Account.editUser')->with(['user'=>$user]);
 
     }
     //*responds to viewing details of wish//
 
-
+#    public function email(Request $request, $id)
+#       {
+#           $user = User::findOrFail($id);
+#
+#           Mail::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
+#               $m->from('hello@app.com', 'Your Application');
+#
+#               $m->to($user->email, $user->name)->subject('Your Reminder!');
+#           });
 
 }

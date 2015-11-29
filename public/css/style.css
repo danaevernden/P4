@@ -35,7 +35,7 @@
    font-family: 'Helvetica Neue',Helvetica, sans-serif;
   /*font-family: 'Open Sans Condensed', sans-serif; */
   margin-left:150px;
-  border-top:150px;
+  padding-top:120px;
 }
 
 
@@ -49,21 +49,23 @@ a:hover{
 }
 
 .wishform{
-  margin-top:150px;
-  border-top:150px;
 }
+
 .preWishTitle{
   font-size:30px;
   margin-bottom:30px;
 }
 
-.preWishTitle2{
+.CharityFinder{
   font-size:20px;
   margin-bottom:30px;
 }
 
+.CharityFinderimg{
+  max-width:250px;
+}
+
 .preWishSelect{
-  margin-top:200px;
   text-align:center;
 }
 

@@ -26,6 +26,9 @@ Route::get('/charityfinder', 'CharityController@getIndexCharityFinder');
 Route::post('/charityfinder', 'CharityController@postIndexCharityFinder');
 Route::get('/charity/edit/{id?}', 'CharityController@getEditCharity');
 Route::post('charity/edit','CharityController@postEditCharity');
+Route::get('/charity/delete/{id?}', 'CharityController@getDeleteCharity');
+Route::post('/charity/delete/{id?}','CharityController@postDeleteCharity');
+
 Route::get('/newwish', 'WishController@preIndex');
 
 /*users can't access these pages when logged out*/
@@ -45,6 +48,8 @@ Route::get('/account/edit/{id?}', 'AccountController@getEdit');
 Route::get('/account/edit/user','AccountController@getEditUser');
 Route::post('/account/edit','AccountController@postEdit');
 Route::post('/account/edit/user','AccountController@postEditUser');
+Route::get('/account/delete/{id?}','AccountController@getdeleteWish');
+Route::post('/account/delete/{id?}','AccountController@postdeleteWish');
 Route::get('/add/charity', 'CharityController@getIndexCharity');
 Route::post('/add/charity', 'CharityController@postIndexCharity');
 
@@ -60,19 +65,22 @@ Route::post('/add/crowdsource', 'CharityController@postIndexCrowdSource');
 
 # Show login form
 Route::get('/login', 'Auth\AuthController@getLogin');
-
 # Process login form
 Route::post('/login', 'Auth\AuthController@postLogin');
-
 # Process logout
 Route::get('/logout', 'Auth\AuthController@getLogout');
-
 # Show registration form
 Route::get('/register', 'Auth\AuthController@getRegister');
-
 # Process registration form
 Route::post('/register', 'Auth\AuthController@postRegister');
 
+// Password reset link request routes...
+Route::get('/password/email', 'Auth\PasswordController@getEmail');
+Route::post('/password/email', 'Auth\PasswordController@postEmail');
+
+// Password reset routes...
+Route::get('/password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('/password/reset', 'Auth\PasswordController@postReset');
 
 
 if(App::environment('local')) {

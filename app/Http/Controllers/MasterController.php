@@ -12,7 +12,8 @@ class MasterController extends Controller {
 
 
     public function getIndex() {
-       return view('Master.index');
+      $wishes = \P4\Wish::all()->sum('donation_amnt_request');
+       return view('Master.index')->with('wishes', $wishes);
     }
 
 

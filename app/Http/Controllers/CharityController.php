@@ -60,8 +60,6 @@ class CharityController extends Controller {
         return redirect('/charity');
     }
 
-
-
       public function getIndexCrowdSource(){
         return view('Charity.indexCrowdSource');
       }
@@ -86,5 +84,17 @@ class CharityController extends Controller {
         \Session::flash('flash_message', 'Thank you! Your CrowdSource is now added!');
         return redirect('/charity');
       }
+
+      public function getDeleteCharity($id = null){
+          $charity = \P4\Charity::find($id);
+          return view('Charity.DeleteCharity')->with(['charity'=>$charity]);
+      }
+      public function postDeleteCharity($id = null){
+        $charity = \P4\Charity::find($id);
+        $charity->delete();
+        \Session::flash('flash_message','Record deleted.');
+        return redirect('/charityfinder');
+      }
+
 
 }

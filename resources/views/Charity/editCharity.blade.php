@@ -128,6 +128,8 @@
             >
             <br>
             <button type="submit" class="button">Save</button>
+               <a href="/charity/delete/{{$charity->id}}" class="button">
+                 Delete Charity</a>
          </fieldset>
        </form>
        <br>
