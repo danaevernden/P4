@@ -52,6 +52,8 @@ class AuthController extends Controller
         return Validator::make($data, [
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
+            'city' => 'max:255',
+            'state' => 'max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
@@ -68,9 +70,14 @@ class AuthController extends Controller
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
+            'city' => $data['city'],
+            'state' => $data['state'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+        \Session::flash('flash_message','You have successfully created an account.');
+        return redirect('/account');
+
     }
 
     /**
@@ -84,4 +91,10 @@ class AuthController extends Controller
         \Session::flash('flash_message','You have been logged out.');
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }
+
+#    public function getRegister()
+#    {
+#      return view ('Auth.Register');
+#    }
+
 }

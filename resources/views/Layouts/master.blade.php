@@ -15,62 +15,58 @@
       <title> Season of Giving </title>
   </head>
   <banner>
-    <div class="title">
-    <a href="/" class="titlelink">
-    <img src="/images/giftban.png" class="giftban"/>
-      Season of Giving
-    <img src="/images/giftban.png" class="giftban" alt="giftban"/>
-  </a>
-
-    </div>
-    <div class="nav">
-    <div class="ribbon">
-    <!--  <div class="ribbon-stitches-top">
-    </div> -->
-
-    <strong class="ribbon-content">
-      <h1>
-      @if(Auth::check())
-        <a href="/about">About</a>
-         -
-        <a href="/charity">Charities</a>
-         -
-        <a href="/newwish">Log a Wish</a> <!--change-->
-        -
-       <a href="/account">My Account</a>
-        -
-       <a href="/logout">Log Out</a>
-      @else
-      <a href="/about">About</a>
-       -
-      <a href="/charity">Charities</a>
-       -
-      <a href="/newwish">Log a Wish</a>
-      -
-     <a href="/account">Register</a>
-      -
-     <a href="/login">Log In</a>
-     @endif
+      <div class="title">
+          <a href="/" class="titlelink">
+            <img src="/images/giftban.png" class="giftban"/>
+            @if(Request::is('/'))
+                Welcome
+            @else
+                Season of Giving
+            @endif
+            <img src="/images/giftban.png" class="giftban" alt="giftban"/>
+          </a>
+      </div>
+      <div class="nav">
+      <div class="ribbon">
+      <strong class="ribbon-content">
+          <h1>
+          @if(Auth::check())
+            <a href="/about">About</a>
+            -
+            <a href="/charity">Charities</a>
+             -
+            <a href="/newwish">Log a Wish</a> <!--change-->
+            -
+           <a href="/account">My Account</a>
+            -
+           <a href="/logout">Log Out</a>
+         @else
+            <a href="/about">About</a>
+             -
+            <a href="/charity">Charities</a>
+             -
+            <a href="/newwish">Log a Wish</a>
+            -
+           <a href="/register">Register</a>
+            -
+           <a href="/login">Log In</a>
+      @endif
       </h1>
-    </strong>
-
-    <div class="ribbon-stitches-bottom">
+      </strong>
+      <div class="ribbon-stitches-bottom">
+      </div>
     </div>
-  </div>
   </div>
     @yield('banner')
   </banner>
 
   <body>
       @yield('header')
-
       <div class="content2">
-        @yield('content')
+          @yield('content')
       </div>
-
       <footer>
-        @yield('footer')
+          @yield('footer')
       </footer>
-
   </body>
 </html>

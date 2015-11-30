@@ -3,11 +3,11 @@ bugs to fix
 -add email feature - started
 -add reset password feature - started, not sure if auth/passwordcontroller is correct
 -allow CRUD to charities for only users that added charity?
--make CSS pretty
--digital ocean - emailing
+-make CSS pretty some more
+-not sure why login and register isn't working on DO
 -added in charity dropdown - need to debug when submitting and add elsewhere
 -comment on piazza
--clean up indenting in code
+-add a 'view stats' page to each charity - started viewCharity.blade.php
 -test everything!!!
 ```
 

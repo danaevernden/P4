@@ -28,6 +28,7 @@ Route::get('/charity/edit/{id?}', 'CharityController@getEditCharity');
 Route::post('charity/edit','CharityController@postEditCharity');
 Route::get('/charity/delete/{id?}', 'CharityController@getDeleteCharity');
 Route::post('/charity/delete/{id?}','CharityController@postDeleteCharity');
+Route::get('/charity/view/{id?}', 'CharityController@getViewCharity');
 
 Route::get('/newwish', 'WishController@preIndex');
 

@@ -1,8 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-
-    <p>Don't have an account? <a href='/register'>Register here...</a></p>
+  <div class="maincontent">
+    <p>Don't have an account? <a class="linkInBody" href='/register'>Register here...</a></p>
 
     <h1>Login</h1>
 
@@ -36,4 +36,5 @@
         <button type='submit' class='btn btn-primary'>Login</button>
 
     </form>
+  </div>
 @stop

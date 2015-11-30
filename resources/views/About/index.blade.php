@@ -9,6 +9,7 @@
 
 @section('content')
   <div class="maincontent">
+
     Season of Giving's aim is to lessen:
     <ul>
       <li> stress during the holiday season</li>
