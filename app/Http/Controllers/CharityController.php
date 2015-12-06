@@ -23,22 +23,73 @@ class CharityController extends Controller {
 
     public function postIndexCharityFinder(Request $request){
   #    this isn't working >>>
-      $charities = \P4\Charity::find($request->charity_or_crowdsource)->get();
-      return view('Charity.indexCharityFinder')->with('charities', $charities);
+      $charity = \P4\Charity::find($request->city);
+      dump($charity);
+    #  dump($id);
+
+      if(is_null($charity)) {
+          \Session::flash('flash_message','Charity not found.');
+          return redirect('\charityfinder');
+      }
+
+      return view('Charity.indexCharityFinder')->with('charity', $charity);
     }
 
     public function getIndexCharity(){
-        return view('Charity.indexCharity');
+      $states = array("Alabama", "Alaska", "Arizona", "Arkansas", "California",
+      "Colorado", "Connecticut", "Delaware", "District of Columbia", "Florida",
+      "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas",
+      "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
+      "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
+      "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota",
+      "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
+      "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
+      "West Virginia", "Wisconsin", "Wyoming" );
+
+        return view('Charity.indexCharity')->with(['states'=>$states]);
     }
 
     public function getEditCharity($id = null) {
-        $charity = \P4\Charity::find($id);
-        return view('Charity.editCharity')->with(['charity'=>$charity]);
+            $charity = \P4\Charity::find($id);
+
+            $states = array("Alabama", "Alaska", "Arizona", "Arkansas", "California",
+            "Colorado", "Connecticut", "Delaware", "District of Columbia", "Florida",
+            "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas",
+            "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
+            "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
+            "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota",
+            "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
+            "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
+            "West Virginia", "Wisconsin", "Wyoming" );
+              return view('Charity.editCharity')->with(['charity'=>$charity, 'states'=>$states]);
+        }
+
+   public function postEditCharity(Request $request) {
+          $charity = \P4\Charity::find($request->id);
+          $charity->name = $request->name;
+          $charity->description = $request->description;
+          $charity->city = $request->city;
+          $charity->state = $request->state;
+          $charity->mission = $request->mission;
+      #    $charity->hashtags = $request->hashtags;
+          $charity->website = $request->website;
+          $charity->year_founded = $request->year_founded;
+          $charity->charity_or_crowdsource = $request->charity_or_crowdsource;
+          $charity->logo_or_pic = $request->logo_or_pic;
+          $charity->save();
+          \Session::flash('flash_message', 'Your charity was updated.');
+          return redirect('/charity/edit/'.$request->id);
       }
 
-    public funciton getViewCharity($id = null){
-      $charity = \P4\Charity::find($id)->with($wish);
-      return view('Charity.viewCharity')->with(['charity'=>$charity, 'wish'=>$wish]);
+    public function getViewCharity($id = null){
+      $charity = \P4\Charity::find($id);
+      $wish = \P4\Wish::where('charity_id','=',$id);
+      # $user = \P4\User::where('id','=',$wishusers);
+      $wishsum = $wish->sum('donation_amnt_request');
+      $wishgift = \P4\Wish::where('charity_id','=',$id)->pluck('wrapping_paper_color');
+      #$userwish = \Auth\User::where('id','=',$user_id);
+    #  dump($wishgift);
+      return view('Charity.viewCharity')->with(['charity'=>$charity, 'wish'=>$wish, 'wishsum'=>$wishsum, 'wishgift'=>$wishgift]);
     }
     /*responds to requests to POST /new charity*/
     public function postIndexCharity(Request $request) {
@@ -65,7 +116,17 @@ class CharityController extends Controller {
     }
 
       public function getIndexCrowdSource(){
-        return view('Charity.indexCrowdSource');
+        $states = array("Alabama", "Alaska", "Arizona", "Arkansas", "California",
+        "Colorado", "Connecticut", "Delaware", "District of Columbia", "Florida",
+        "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas",
+        "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
+        "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
+        "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota",
+        "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
+        "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
+        "West Virginia", "Wisconsin", "Wyoming" );
+
+        return view('Charity.indexCrowdSource')->with(['states'=>$states]);
       }
 
     /*responds to requests to POST /new charity*/

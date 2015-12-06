@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::get('/practice', 'MasterController@getIndexPractice');
 
 Route::get('/', 'MasterController@getIndex');
@@ -33,31 +35,33 @@ Route::get('/charity/view/{id?}', 'CharityController@getViewCharity');
 Route::get('/newwish', 'WishController@preIndex');
 
 /*users can't access these pages when logged out*/
-Route::group(['middleware'=> 'auth'], function() {
+#Route::group(['middleware'=> 'auth'], function() {
 
-Route::get('/newwish/donation', 'WishController@getIndexDonation');
-Route::post('/newwish/donation', 'WishController@postIndexDonation');
+    Route::get('/newwish/donation', 'WishController@getIndexDonation');
+    Route::post('/newwish/donation', 'WishController@postIndexDonation');
 
-Route::get('/newwish/material', 'WishController@getIndexMaterial');
-Route::post('/newwish/material', 'WishController@postIndexMaterial');
+    #Route::get('/newwish/material', 'WishController@getIndexMaterial');
+    #Route::post('/newwish/material', 'WishController@postIndexMaterial');
 
-Route::get('/newwish/crowdsource', 'WishController@getIndexCrowdSource');
-Route::post('/newwish/crowdsource', 'WishController@postIndexCrowdSource');
+    Route::get('/newwish/crowdsource', 'WishController@getIndexCrowdSource');
+    Route::post('/newwish/crowdsource', 'WishController@postIndexCrowdSource');
 
-Route::get('/account', 'AccountController@getIndex');
-Route::get('/account/edit/{id?}', 'AccountController@getEdit');
-Route::get('/account/edit/user','AccountController@getEditUser');
-Route::post('/account/edit','AccountController@postEdit');
-Route::post('/account/edit/user','AccountController@postEditUser');
-Route::get('/account/delete/{id?}','AccountController@getdeleteWish');
-Route::post('/account/delete/{id?}','AccountController@postdeleteWish');
-Route::get('/add/charity', 'CharityController@getIndexCharity');
-Route::post('/add/charity', 'CharityController@postIndexCharity');
+    Route::get('/account', 'AccountController@getIndex');
 
-Route::get('/add/crowdsource', 'CharityController@getIndexCrowdSource');
-Route::post('/add/crowdsource', 'CharityController@postIndexCrowdSource');
+    Route::get('/account/edit/user','AccountController@getEditUser');
+    Route::post('/account/edit/user','AccountController@postEditUser');
+    Route::get('/account/edit/{id?}', 'AccountController@getEdit');
+    Route::post('/account/edit/{id?}','AccountController@postEdit');
 
-});
+    Route::get('/account/delete/{id?}','AccountController@getdeleteWish');
+    Route::post('/account/delete/{id?}','AccountController@postdeleteWish');
+    Route::get('/add/charity', 'CharityController@getIndexCharity');
+    Route::post('/add/charity', 'CharityController@postIndexCharity');
+
+    Route::get('/add/crowdsource', 'CharityController@getIndexCrowdSource');
+    Route::post('/add/crowdsource', 'CharityController@postIndexCrowdSource');
+
+#});
 
 
 

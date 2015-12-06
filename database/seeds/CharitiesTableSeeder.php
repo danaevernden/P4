@@ -95,20 +95,6 @@ class CharitiesTableSeeder extends Seeder
                  'logo_or_pic' => 'https://2dbdd5116ffa30a49aa8-c03f075f8191fb4e60e74b907071aee8.ssl.cf1.rackcdn.com/6837197_1447277431.1248.jpg',
         ]);
 
-         DB::table('charities')->insert([
-             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-             'name' => 'selfie stick',
-             'description' => 'As if you were not already full of yourself
-             enough, now we have the technology to ensure that no picture you
-             take will be missing you. Good thing a side affect of a selfie stick
-             is promoting self-love. What better time of year to spread that love
-             than during the holiday?',
-             'hashtags' => 'narcissistic, selfiestick, self-love',
-             'website' => 'http://www.amazon.com/Promaster-Selfie-Stick-Camera
-             -Smart/dp/B00IEEN8TE',
-             'charity_or_crowdsource' => 'material',
-             'logo_or_pic'=> 'http://www.stretchingabuckblog.com/wp-content/uploads/2015/04/Dollarphotoclub_79739943.jpg',
-          ]);
+    
      }
 }

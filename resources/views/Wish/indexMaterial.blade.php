@@ -12,17 +12,11 @@
                     Present:
                     <input
                          type='text'
-                         id= 'charity'
-                         name='charity'
-                         value='{{old('charity', 'Selfie Stick')}}'
+                         id= 'material_gift'
+                         name='material_gift'
+                         value='{{old('material_gift', 'Selfie Stick')}}'
                     >
-                    <br><br>Hashtags:
-                    <input
-                        type='text'
-                        id='hashtags'
-                        name='hashtags'
-                        value='{{old('hashtags', 'selfie stick, narcissism, love')}}'
-                    >
+
                     <br><br>Message:
                     <textarea
                         id='message'

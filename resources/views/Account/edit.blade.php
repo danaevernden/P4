@@ -17,12 +17,20 @@
       <form method='POST' action='/account/edit'>
       <input type='hidden' value='{{ csrf_token() }}' name='_token'>
       <fieldset>
-        <input type='hidden' name='id' value='{{ $wish->id }}'>
-            <div class='form-group'>
-                *Charity:
-                  <select>
-                  </select>
-            <br><br>Hashtags:
+        <div class='form-group'>
+            *Charity:
+            <select name='charity' id='charity'>
+
+                @foreach($charities as $charity)
+                    <option value='{{$charity->id}}'
+                      {{ $selected = ($charity->id == $wish->charity->id) ? 'selected' : '' }}
+                      >
+                        {{$charity->name}}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+                <br><br>Hashtags:
              <input
                type='text'
                id='hashtags'

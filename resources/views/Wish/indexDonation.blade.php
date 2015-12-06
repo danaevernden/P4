@@ -11,15 +11,14 @@
         <fieldset>
             <div class='form-group'>
                 *Charity:
-                <select>
+                <select name='charity' id='charity'>
                     @foreach($charities as $charity)
-                        <option name='charity_id'
-                            id='charity_id'
-                            value='{{$charity->id}}'>
+                        <option value='{{$charity->id}}'>
                             {{$charity->name}}
-                    @endforeach
                         </option>
+                    @endforeach
                 </select>
+            </div>
             <br><br>Hashtags:
             <input
                type='text'

@@ -46,14 +46,13 @@ class WishController extends Controller {
           #$this->validate( $request, [
           #  'charity' => 'required|min:3',
           #  ]);
-dump($request);
             $wish = new \P4\Wish();
-            $wish->charity_id = $request->charity_id;
+            $wish->charity_id = $request->charity;
             $wish->donation_amnt_request = $request->donation_amnt_request;
+            $wish->user_id = \Auth::user()->id;
             $wish->hashtags = $request->hashtags;
             $wish->message = $request->message;
             $wish->wrapping_paper_color = $request->wrapping_paper_color;
-            $wish->user_id = $request->user_id;
             $wish->save();
             \Session::flash('flash_message', 'Thank you! Your wish is now added!');
 
@@ -63,44 +62,37 @@ dump($request);
 
     /*responds to requests to POST /newwish/donation*/
     public function postIndexCrowdSource(Request $request) {
-      $this->validate( $request, [
-        'charity' => 'required|min:3',
-        ]);
-
+      #$this->validate( $request, [
+      #  'charity' => 'required|min:3',
+      #  ]);
         $wish = new \P4\Wish();
-        $wish->charity = $request->charity;
+        $wish->charity_id = $request->charity;
         $wish->donation_amnt_request = $request->donation_amnt_request;
-      #  $wish->wisher = $request->wisher;
+        $wish->user_id = \Auth::user()->id;
         $wish->hashtags = $request->hashtags;
         $wish->message = $request->message;
         $wish->wrapping_paper_color = $request->wrapping_paper_color;
-
         $wish->save();
         \Session::flash('flash_message', 'Thank you! Your wish is now added!');
 
         return redirect('/newwish');
-    }
+}
 
 
-    /*responds to requests to POST /newwish/donation*/
-    public function postIndexMaterial(Request $request) {
-      $this->validate( $request, [
-        'charity' => 'required|min:3',
-        ]);
+  #  public function postIndexMaterial(Request $request) {
+      #$this->validate( $request, [
+      #  'charity' => 'required|min:3',
+      #  ]);
+  #      $wish = new \P4\Wish();
+  #      $wish->material_gift = $request->material_gift;
+  #      $wish->user_id = \Auth::user()->id;
+  #      $wish->message = $request->message;
+  #      $wish->wrapping_paper_color = $request->wrapping_paper_color;
+  #      $wish->save();
+  #      \Session::flash('flash_message', 'Thank you! Your wish is now added!');
 
-        $wish = new \P4\Wish();
+  #      return redirect('/newwish');
+#}
 
-        $wish->charity = $request->charity;
-        ##should be changed to material gift later
-    #    $wish->wisher = $request->wisher;
-        $wish->hashtags = $request->hashtags;
-        $wish->message = $request->message;
-        $wish->wrapping_paper_color = $request->wrapping_paper_color;
-
-        $wish->save();
-        \Session::flash('flash_message', 'Thank you! Your wish is now added!');
-
-        return redirect('/newwish');
-    }
 
 }

@@ -10,21 +10,27 @@
   position: absolute;
 }
 .homepage{
+  text-align:center;
+}
+
+.seasonofgiving{
   font-family: 'Pacifico', cursive;
   font-size:75px;
+
 }
 .nav{
   margin-left:auto;
   margin-right:auto;
   position:absolute;
-/*margin-left:15%;*/
+  padding-left:23%;
 }
 
 .linkInBody{
   color:black;
 }
 .charityform{
-  width:100px;
+  width:200px;
+  padding-left:25%;
 }
 .bigtextbox{
   width:300px;
@@ -40,7 +46,8 @@
 .maincontent{
    font-family: 'Helvetica Neue',Helvetica, sans-serif;
   /*font-family: 'Open Sans Condensed', sans-serif; */
-  margin-left:150px;
+  padding-left:20%;
+  padding-right:20%;
   padding-top:120px;
 }
 
@@ -54,8 +61,6 @@ a:hover{
     color:rgb(192,192,192);
 }
 
-.wishform{
-}
 
 .preWishTitle{
   font-size:30px;
@@ -65,8 +70,12 @@ a:hover{
 .CharityFinder{
   font-size:20px;
   margin-bottom:30px;
+  text-align:center;
 }
 
+.account{
+  padding-left:40%;
+}
 .CharityFinderimg{
   max-width:250px;
 }
@@ -74,8 +83,6 @@ a:hover{
 .preWishSelect{
   text-align:center;
 }
-
-
 
 
 

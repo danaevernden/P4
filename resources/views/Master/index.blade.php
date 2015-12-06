@@ -2,11 +2,21 @@
 
     @section('content')
         <div class="maincontent">
-            <div class="homepage">Season of Giving</div>
-            <strong><?php echo $wishes ?>
-             dollars </strong> have been requested to be donated to
-             charities this holiday season!
+            <div class="homepage">
+                <div class="seasonofgiving">
+                    Season of Giving
+                </div>
+                <strong><?php echo $wishsum ?>
+                dollars </strong> have been requested to be donated to
+                charities this holiday season!<br>
+
         <!--    <img src="/images/thankyou2.jpg" class="CharityFinderimg"/><br>
-        -->    <img src="/images/change.jpg" class="CharityFinderimg"/>
-        </div>
+        -->    <img src="/images/change.jpg" class="CharityFinderimg"/><br>
+          @if (!empty($wishgifts))
+             @foreach($wishgifts as $wishgift)
+                  <img src=/images/gift{{$wishgift}}.png></img>
+              @endforeach
+          @endif
+          </div>
+       </div>
     @stop

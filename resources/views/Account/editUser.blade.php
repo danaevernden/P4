@@ -42,12 +42,15 @@
             value='{{$user->city}}'
             >
             <br><br>State:
-            <input
-            type='text'
-            id='state'
-            name='state'
-            value='{{$user->state}}'
-            >
+            <select name='state' id='state'>
+                @foreach($states as $state)
+                    <option value='{{$state}}'
+                    {{ $selected = ($state == $user->state) ? 'selected' : '' }}
+                        >
+                        {{$state}}
+                    </option>
+                @endforeach
+            </select>
             <button type="save" class="button">Save</button>
         </fieldset>
         </form>

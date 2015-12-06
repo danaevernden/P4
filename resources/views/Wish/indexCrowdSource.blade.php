@@ -9,13 +9,16 @@
         <form method='POST' action='/newwish/crowdsource'>
             <input type='hidden' value='{{ csrf_token() }}' name='_token'>
             <fieldset>
+              <div class='form-group'>
                 CrowdSource/Kickstarter/GoFundMe*:
-                <input
-                    type='text'
-                    id='Charity'
-                    name='charity'
-                    value='{{old('charity', 'The Magic Yarn Project')}}'
-                >
+                <select name='charity' id='charity'>
+                  @foreach($charities as $charity)
+                      <option value='{{$charity->id}}'>
+                          {{$charity->name}}
+                      </option>
+                  @endforeach
+                </select>
+              </div>
                 <br><br>Hashtags:
                 <input
                     type='textarea'
@@ -60,6 +63,7 @@
             ><img src=/images/gift6.png></img>
             <br><br>
             <button type="submit" class="button">Submit</button>
+
         </fieldset>
       </form>
       <br>
