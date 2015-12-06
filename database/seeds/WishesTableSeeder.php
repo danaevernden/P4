@@ -20,7 +20,7 @@ class WishesTableSeeder extends Seeder
         #  'wisher' => 'jill@harvard.edu',
           'user_id' => $user_id,
           'charity_id' =>  $charity_id,
-          'hashtags' => 'children',
+      #    'hashtags' => 'children',
           'message' => 'Thank you relatives for donating in lieu of gifts!',
           'wrapping_paper_color' => 1,
       ]);
@@ -34,7 +34,7 @@ class WishesTableSeeder extends Seeder
           #'wisher' => 'jill@harvard.edu',
           'user_id' => $user_id,
           'charity_id' =>  $charity_id,
-          'hashtags' => 'heart, love',
+      #    'hashtags' => 'heart, love',
           'message' => 'Wishing you the best, Oliver!',
           'wrapping_paper_color' => 2,
       ]);
@@ -47,7 +47,7 @@ class WishesTableSeeder extends Seeder
         #  'wisher' => 'draper@sterlingcooperdraperpryce.com',
           'charity_id' =>  $charity_id,
           'user_id' => $user_id,
-          'hashtags' => 'red cross, relief',
+      #    'hashtags' => 'red cross, relief',
           'message' => ' Big Sister helps in more ways than we all know!',
           'wrapping_paper_color' => 3,
       ]);
@@ -61,7 +61,7 @@ class WishesTableSeeder extends Seeder
       #    'wisher' => 'piper@oitnb.com',
           'user_id' => $user_id,
           'charity_id' => $charity_id,
-          'hashtags' => 'Donations will help many young cancer patients.',
+      #    'hashtags' => 'Donations will help many young cancer patients.',
           'message' => 'mental health, wellness, mind',
           'wrapping_paper_color' => 4,
        ]);

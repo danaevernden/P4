@@ -19,13 +19,6 @@
                     @endforeach
                 </select>
             </div>
-            <br><br>Hashtags:
-            <input
-               type='text'
-               id='hashtags'
-               name='hashtags'
-               value='{{old('hashtags', 'Money for People, Seinfeld, The Strike, Festivus')}}'
-            >
             <Br><br>Donation Amount Request:
             <input
                 type='integer'

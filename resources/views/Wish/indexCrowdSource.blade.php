@@ -19,13 +19,6 @@
                   @endforeach
                 </select>
               </div>
-                <br><br>Hashtags:
-                <input
-                    type='textarea'
-                    id='hashtags'
-                    name='hashtags'
-                    value='{{old('hashtags', 'children, cancer, wigs')}}'
-                >
                 <Br><br>Donation Amount Request:
                 <input
                     type='integer'

@@ -30,13 +30,7 @@
                 @endforeach
             </select>
         </div>
-                <br><br>Hashtags:
-             <input
-               type='text'
-               id='hashtags'
-               name='hashtags'
-               value='{{$wish->hashtags}}'
-             >
+            
              <Br><br>Donation Amount Request:
                <input
                  type='integer'

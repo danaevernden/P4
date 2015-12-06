@@ -1,19 +1,20 @@
 bugs to fix
 
--add email feature - started
--add reset password feature - started, not sure if auth/passwordcontroller is correct
 -allow CRUD to charities for only users that added charity?
 -make CSS pretty some more
 -not sure why login and register isn't working on DO
--get serach function to work in charityfinder
 -comment on piazza
--add a 'view stats' page to each charity - started viewCharity.blade.php
 -test everything!!!
 -get rid of hashtags if i'm not using it
--state dropdown for register form not working
--save not working for new user
+-state dropdown for register form not working/ save not working for new user
 -money on front page is not correct -only pulling for current user maybe?
 -eager loading from two tables?
+
+stretch tasks:
+-add email feature - started
+-add reset password feature - started, not sure if auth/passwordcontroller is correct
+-search feature in CharityFinder
+-add a 'view stats' page to each charity - started viewCharity.blade.php
 
 - http://jamie.sh/tutorials/7/setting-up-mailgun-with-laravel-5
 https://mailgun.com/accounts/free/signup_success

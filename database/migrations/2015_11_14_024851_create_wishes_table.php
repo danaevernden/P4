@@ -24,12 +24,9 @@ class CreateWishesTable extends Migration
 
         # The rest of the fields...
         $table->string('donation_amnt_request');
-  #      $table->string('wisher');
         $table->string('material_gift');
-        $table->string('hashtags');
         $table->text('message');
         $table->integer('wrapping_paper_color');
-        # FYI: We're skipping the 'tags' field for now; more on that later.
         $table->integer('charity_id')->unsigned();
         });
 
