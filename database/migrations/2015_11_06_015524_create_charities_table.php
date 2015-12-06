@@ -27,7 +27,6 @@ class CreateCharitiesTable extends Migration
           $table->string('description');
           $table->string('city');
           $table->string('state');
-          $table->string('hashtags');
           $table->text('mission');
           $table->text('website');
           $table->integer('year_founded');

@@ -21,7 +21,6 @@ class CharitiesTableSeeder extends Seeder
              children and mothers in developing countries.',
              'city' => 'New York City',
              'state' => 'New York',
-             'hashtags' => 'children, humanitarian',
              'mission' => 'UNICEF is mandated by the United Nations General
              Assembly to advocate for the protection of childrens rights, to
              help meet their basic needs and to expand their opportunities to
@@ -43,7 +42,6 @@ class CharitiesTableSeeder extends Seeder
               proven to increase positive outcomes for girls.',
              'city' => 'Boston',
              'state' => 'Massachusetts',
-             'hashtags' => 'Big Sisters, Boston, mentoring, relationships, women',
              'mission' => 'We ignite girls passion and power to succeed
              through positive mentoring relationships with women and
              enrichment programs that support girls healthy development.',
@@ -69,7 +67,6 @@ class CharitiesTableSeeder extends Seeder
               supplies, shipping costs, and logistics.',
              'city' => 'Palmer',
              'state' => 'Arkansas',
-             'hashtags' => '',
              'website' => 'https://www.gofundme.com/magicyarn',
              'charity_or_crowdsource' => 'crowdsource',
              'logo_or_pic'=> 'https://2dbdd5116ffa30a49aa8-c03f075f8191fb4e60e74b907071aee8.ssl.cf1.rackcdn.com/6039051_1442456198.1327.jpg',
@@ -89,12 +86,11 @@ class CharitiesTableSeeder extends Seeder
                   and at one point landed him on the Heart Transplant List.',
                  'city' => 'Boston',
                  'state' => 'Massachusetts',
-                 'hashtags' => 'surgery, children, heart',
                  'website' => 'https://www.gofundme.com/mc92k4g4',
                  'charity_or_crowdsource' => 'crowdsource',
                  'logo_or_pic' => 'https://2dbdd5116ffa30a49aa8-c03f075f8191fb4e60e74b907071aee8.ssl.cf1.rackcdn.com/6837197_1447277431.1248.jpg',
         ]);
 
-    
+
      }
 }

@@ -71,7 +71,6 @@ class CharityController extends Controller {
           $charity->city = $request->city;
           $charity->state = $request->state;
           $charity->mission = $request->mission;
-      #    $charity->hashtags = $request->hashtags;
           $charity->website = $request->website;
           $charity->year_founded = $request->year_founded;
           $charity->charity_or_crowdsource = $request->charity_or_crowdsource;
@@ -104,7 +103,6 @@ class CharityController extends Controller {
         $charity->city = $request->city;
         $charity->state = $request->state;
         $charity->mission = $request->mission;
-    #    $charity->hashtags = $request->hashtags;
         $charity->website = $request->website;
         $charity->year_founded = $request->year_founded;
         $charity->charity_or_crowdsource = 'crowdsource';
@@ -141,7 +139,6 @@ class CharityController extends Controller {
         $charity->description = $request->description;
         $charity->city = $request->city;
         $charity->state = $request->state;
-  #      $charity->hashtags = $request->hashtags;
         $charity->website = $request->website;
         $charity->charity_or_crowdsource = 'crowdsource';
         $charity->logo_or_pic = $request->logo_or_pic;
