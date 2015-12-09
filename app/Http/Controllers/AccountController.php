@@ -103,7 +103,6 @@ class AccountController extends Controller {
         $wish->charity_id = $request->charity;
         $wish->donation_amnt_request = $request->donation_amnt_request;
         $wish->user_id = \Auth::user()->id;
-        $wish->hashtags = $request->hashtags;
         $wish->message = $request->message;
         $wish->wrapping_paper_color = $request->wrapping_paper_color;
         $wish->save();

@@ -20,7 +20,7 @@ class WishController extends Controller {
     public function getIndexCrowdSource(){
       $wish = \P4\Wish::orderby('id','ASC')->get();
       $charities = \P4\Charity::where('charity_or_crowdsource','=','crowdsource')->get();
-            return view('Wish.indexCrowdSource')->with(['wish'=>$wish, 'charities'=>$charities]);
+      return view('Wish.indexCrowdSource')->with(['wish'=>$wish, 'charities'=>$charities]);
 
     }
     public function getIndexMaterial(){
@@ -31,12 +31,7 @@ class WishController extends Controller {
 
       $wish = \P4\Wish::orderby('id','ASC')->get();
       $charities = \P4\Charity::where('charity_or_crowdsource','=','charity')->get();
-  #  $charities = \P4\Charity::lists('id');
-        #    $charities_for_dropdown = [];
-          #  foreach($charities as $charity) {
-          #      $charities_for_dropdown[$charity->id] = $charity->name;
-        #    }
-            return view('Wish.indexDonation')->with(['wish'=>$wish, 'charities'=>$charities]);
+      return view('Wish.indexDonation')->with(['wish'=>$wish, 'charities'=>$charities]);
 
     }
 
@@ -76,21 +71,6 @@ class WishController extends Controller {
         return redirect('/newwish');
 }
 
-
-  #  public function postIndexMaterial(Request $request) {
-      #$this->validate( $request, [
-      #  'charity' => 'required|min:3',
-      #  ]);
-  #      $wish = new \P4\Wish();
-  #      $wish->material_gift = $request->material_gift;
-  #      $wish->user_id = \Auth::user()->id;
-  #      $wish->message = $request->message;
-  #      $wish->wrapping_paper_color = $request->wrapping_paper_color;
-  #      $wish->save();
-  #      \Session::flash('flash_message', 'Thank you! Your wish is now added!');
-
-  #      return redirect('/newwish');
-#}
 
 
 }
