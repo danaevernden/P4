@@ -14,7 +14,7 @@
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       <title> Season of Giving </title>
   </head>
-  <banner>
+  <header>
       <div class="title">
           <a href="/" class="titlelink">
             <img src="/images/giftban.png" class="giftban"/>
@@ -58,7 +58,7 @@
     </div>
   </div>
     @yield('banner')
-  </banner>
+  </header>
 
   <body>
       @yield('header')

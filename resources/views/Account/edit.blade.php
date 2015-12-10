@@ -20,7 +20,6 @@
         <div class='form-group'>
             *Charity:
             <select name='charity' id='charity'>
-
                 @foreach($charities as $charity)
                     <option value='{{$charity->id}}'
                       {{ $selected = ($charity->id == $wish->charity->id) ? 'selected' : '' }}
@@ -30,7 +29,7 @@
                 @endforeach
             </select>
         </div>
-            
+
              <Br><br>Donation Amount Request:
                <input
                  type='integer'
