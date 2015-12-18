@@ -26,10 +26,6 @@ Route::get('/about', 'AboutController@getIndex');
 Route::get('/charity', 'CharityController@preIndex');
 Route::get('/charityfinder', 'CharityController@getIndexCharityFinder');
 Route::post('/charityfinder', 'CharityController@postIndexCharityFinder');
-Route::get('/charity/edit/{id?}', 'CharityController@getEditCharity');
-Route::post('charity/edit','CharityController@postEditCharity');
-Route::get('/charity/delete/{id?}', 'CharityController@getDeleteCharity');
-Route::post('/charity/delete/{id?}','CharityController@postDeleteCharity');
 Route::get('/charity/view/{id?}', 'CharityController@getViewCharity');
 
 
@@ -58,6 +54,11 @@ Route::group(['middleware'=> 'auth'], function() {
 
     Route::get('/add/crowdsource', 'CharityController@getIndexCrowdSource');
     Route::post('/add/crowdsource', 'CharityController@postIndexCrowdSource');
+
+    Route::get('/charity/edit/{id?}', 'CharityController@getEditCharity');
+    Route::post('/charity/edit','CharityController@postEditCharity');
+    Route::get('/charity/delete/{id?}', 'CharityController@getDeleteCharity');
+    Route::post('/charity/delete/{id?}','CharityController@postDeleteCharity');
 
 
 });

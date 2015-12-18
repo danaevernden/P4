@@ -71,8 +71,8 @@ class AccountController extends Controller {
       return redirect('/account');
     }
 
-    public function getEdit($id = null) {
-        $wishes = \P4\Wish::with('charity')->get();
+    public function getEdit($id = null)
+    {
         $wish = \P4\Wish::find($id);
         $charities = \P4\Charity::orderby('name', 'ASC')->get();
         $user=\Auth::user();
@@ -96,21 +96,18 @@ class AccountController extends Controller {
       }
 
     public function postEdit(Request $request) {
-
-      $this->validate($request,[
-         'donation_amnt_request' => 'required',
+        $this->validate($request,[
+            'donation_amnt_request'=>'required',
         ]);
-
+        $wish = \P4\Wish::find($request->id);
         $wish->charity_id = $request->charity;
         $wish->donation_amnt_request = $request->donation_amnt_request;
         $wish->user_id = \Auth::user()->id;
         $wish->message = $request->message;
         $wish->wrapping_paper_color = $request->wrapping_paper_color;
         $wish->save();
-    \Session::flash('flash_message','Your wish was updated.');
-     return redirect('/account');
-     return view('Account.edit')->with(['user'=>$user]);
-
+        \Session::flash('flash_message','Your wish was updated.');
+        return redirect('/account');
     }
     //*responds to viewing details of wish//
 

@@ -26,6 +26,7 @@
       <form method='POST' action='/account/edit'>
       <input type='hidden' value='{{ csrf_token() }}' name='_token'>
       <fieldset>
+        <input type='hidden' name='id' value='{{ $wish->id }}'>
         <div class='form-group'>
             *Charity:
             <select name='charity' id='charity'>
@@ -38,7 +39,6 @@
                 @endforeach
             </select>
         </div>
-
              <Br><br>Donation Amount Request:
                <input
                  type='integer'

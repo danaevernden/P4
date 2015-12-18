@@ -61,7 +61,6 @@ class CharityController extends Controller {
         }
 
    public function postEditCharity(Request $request) {
-
           $this->validate($request,[
              'name' => 'required|max:99',
              'description' => 'required|min:5',
