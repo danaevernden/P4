@@ -91,6 +91,15 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'name'=> ['required' => 'We need to know the name of the charity or crowdsource!'],
+        'first_name'=> ['required' => 'We need to know your first name!'],
+        'last_name'=> ['required' => 'We need to know your last name!'],
+        'logo_or_pic'=> ['required' => 'We need a logo or pic of the charity or crowdsource!'],
+        'website'=> ['required' => 'We need a website!'],
+        'donation_amnt_request'=> ['required' => 'We need a donation amount!'],
+        'email'=>['required' => 'We need an email address!'],
+        'description'=> ['required' => 'We need a charity or crowdsource description!'],
+
     ],
 
     /*

@@ -27,15 +27,18 @@
           </a>
       </div>
       <div class="nav">
-      <div class="ribbon">
+       <div class="ribbon">
       <strong class="ribbon-content">
+    <!--  <div class = "ribbonstuff">
+        <img src="/images/ribbon.png" class="ribbonban" alt="ribbonban"/>
+-->
           <h1>
-          @if(Auth::check())
+         @if(Auth::check())
             <a href="/about">About</a>
             -
             <a href="/charity">Charities</a>
              -
-            <a href="/newwish">Log a Wish</a> <!--change-->
+            <a href="/newwish">Log a Wish</a>
             -
            <a href="/account">My Account</a>
             -
@@ -54,8 +57,8 @@
       </h1>
       </strong>
       <div class="ribbon-stitches-bottom">
-      </div>
-    </div>
+  </div>
+</div>
   </div>
     @yield('banner')
   </header>

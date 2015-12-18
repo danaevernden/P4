@@ -10,6 +10,15 @@
 @section('content')
     <div class="maincontent">
         <div class="charityform">
+
+          @if(count($errors) > 0)
+            <ul class="errors">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul><br>
+          @endif
+
         Add a Charity
         <form method='POST' action='/add/charity'>
             <input type='hidden' value='{{ csrf_token() }}' name='_token'>
@@ -19,27 +28,27 @@
                   type='text'
                   id='name'
                   name='name'
-                  value='{{old('name', 'The Human Fund')}}'
+                  value='{{old('name', '')}}'
               >
               <br><br>Mission Statement:
               <textarea
                   id='mission'
                   name='mission'
-                  value='{{old('mission', 'Hoping this will help!')}}'
+                  value='{{old('mission', '')}}'
               ></textarea>
               <br><br>Year Founded:
               <input
                   type='text'
                   id='year_founded'
                   name='year_founded'
-                  value='{{ old('year_founded', '1997')}}'
+                  value='{{ old('year_founded', '')}}'
               >
               <br><br>City:
               <input
                   type='text'
                   id='city'
                   name='city'
-                  value='{{ old('city', 'New York City')}}'
+                  value='{{ old('city', '')}}'
               >
               <br><br>State:
               <select name='state' id='state'>
@@ -53,7 +62,7 @@
             <textarea
                 id='description'
                 name='description'
-                value='{{old('mission', 'Hoping this will help!')}}'
+                value='{{old('mission', '')}}'
             ></textarea>
             <br><br>Website:
             <input
@@ -61,7 +70,7 @@
                 id='website'
                 name='website'
                 size='35'
-                value='{{ old('website', 'http://festivusweb.com/festivus-the-human-fund.htm')}}'
+                value='{{ old('website', '')}}'
             >
             <br><br>URL of Logo:
             <input
@@ -69,7 +78,7 @@
                 id='logo_or_pic'
                 name='logo_or_pic'
                 size='35'
-                value='{{ old('logo_or_pic', 'http://s3-2.kiva.org/img/w800/456061.jpg')}}'
+                value='{{ old('logo_or_pic', '')}}'
             >
             <br>
             <button type="submit" class="button">Submit</button>

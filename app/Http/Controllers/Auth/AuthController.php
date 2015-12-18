@@ -57,6 +57,7 @@ class AuthController extends Controller
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
+        dump($data);
     }
 
     /**
@@ -65,8 +66,7 @@ class AuthController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
-    { dump($data);
+    protected function create(array $data){
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
@@ -75,10 +75,9 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-        \Session::flash('flash_message','You have successfully created an account.');
-        return redirect('/account');
 
     }
+
 
     /**
      * Log the user out of the application.
@@ -92,9 +91,10 @@ class AuthController extends Controller
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }
 
-#    public function getRegister()
-#    {
-#      return view ('Auth.Register');
-#    }
+    public function getRegister()
+    {
+      return view ('Auth.Register');
+    }
+    
 
 }

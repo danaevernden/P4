@@ -23,7 +23,6 @@
           <strong>State:</strong>
           {{$user->state}}
           <br>
-          Change Password
           <br><br>
           <a href='/account/edit/user' class="button">
           Edit Account Information</a>

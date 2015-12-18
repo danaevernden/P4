@@ -10,6 +10,13 @@
 @section('content')
     <div class="maincontent">
       <div class="charityform">
+          @if(count($errors) > 0)
+            <ul class="errors">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul><br>
+          @endif
           Add a Crowdsource
           <form method='POST' action='/add/crowdsource'>
               <input type='hidden' value='{{ csrf_token() }}' name='_token'>
@@ -19,14 +26,14 @@
                       type='text'
                       id ='name'
                       name='name'
-                      value='{{old('name', 'Children Lost Both Parents in Wreck')}}'
+                      value='{{old('name', '')}}'
                   ></input>
                   <br><br>City:
                  <input
                      type='text'
                      id='city'
                      name='city'
-                     value='{{old('city', 'Jackson')}}'
+                     value='{{old('city', '')}}'
                  ></input>
                  <br><br>State:
                  <select name='state' id='state'>
@@ -40,7 +47,7 @@
                  <textarea
                      id='description'
                      name='description'
-                     value='{{old('description', 'Hoping this will help!')}}'
+                     value='{{old('description', '')}}'
                  ></textarea>
                  <br><br>Website:
                  <input
@@ -48,7 +55,7 @@
                      id='website'
                      name='website'
                      size='35'
-                     value='{{old('website', 'https://www.gofundme.com/WreckOnHalloween')}}'
+                     value='{{old('website', '')}}'
                  ></input>
                  <br><br>URL of Picture:
                  <input
@@ -56,7 +63,7 @@
                      id='logo_or_pic'
                      name='logo_or_pic'
                      size='35'
-                     value='{{old('logo_or_pic', 'https://2dbdd5116ffa30a49aa8-c03f075f8191fb4e60e74b907071aee8.ssl.cf1.rackcdn.com/6621153_1446519689.6133.jpg')}}'
+                     value='{{old('logo_or_pic', '')}}'
                  ></input>
                  <br>
                  <button type="submit" class="button">Submit</button>

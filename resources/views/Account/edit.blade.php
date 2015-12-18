@@ -11,6 +11,15 @@
   <div class="maincontent">
 
     <div class="wishform">
+
+      @if(count($errors) > 0)
+        <ul class="errors">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul><br>
+      @endif
+      
       <div class="preWishTitle2">
         Edit a wish
       </div>

@@ -22,16 +22,12 @@ class CharityController extends Controller {
     }
 
     public function postIndexCharityFinder(Request $request){
-  #    this isn't working >>>
       $charity = \P4\Charity::find($request->city);
-      dump($charity);
-    #  dump($id);
 
       if(is_null($charity)) {
           \Session::flash('flash_message','Charity not found.');
           return redirect('\charityfinder');
       }
-
       return view('Charity.indexCharityFinder')->with('charity', $charity);
     }
 
@@ -65,6 +61,13 @@ class CharityController extends Controller {
         }
 
    public function postEditCharity(Request $request) {
+
+          $this->validate($request,[
+             'name' => 'required|max:99',
+             'description' => 'required|min:5',
+             'logo_or_pic' =>'required|min:5',
+             'website' => 'required|min:5'
+          ]);
           $charity = \P4\Charity::find($request->id);
           $charity->name = $request->name;
           $charity->description = $request->description;
@@ -77,24 +80,25 @@ class CharityController extends Controller {
           $charity->logo_or_pic = $request->logo_or_pic;
           $charity->save();
           \Session::flash('flash_message', 'Your charity was updated.');
-          return redirect('/charity/edit/'.$request->id);
+          return redirect('/charityfinder');
       }
 
     public function getViewCharity($id = null){
       $charity = \P4\Charity::find($id);
       $wish = \P4\Wish::where('charity_id','=',$id);
-      # $user = \P4\User::where('id','=',$wishusers);
-      $wishsum = $wish->sum('donation_amnt_request');
+      $wishes = \P4\Wish::with('charity')->where('charity_id','=',$id)->get();
+      $wishsum = $wishes->sum('donation_amnt_request');
       $wishgift = \P4\Wish::where('charity_id','=',$id)->pluck('wrapping_paper_color');
-      #$userwish = \Auth\User::where('id','=',$user_id);
-    #  dump($wishgift);
-      return view('Charity.viewCharity')->with(['charity'=>$charity, 'wish'=>$wish, 'wishsum'=>$wishsum, 'wishgift'=>$wishgift]);
+      dump($wishgift);
+      return view('Charity.viewCharity')->with(['charity'=>$charity, 'wishes'=>$wishes,'wishsum'=>$wishsum, 'wishgift'=>$wishgift]);
     }
     /*responds to requests to POST /new charity*/
     public function postIndexCharity(Request $request) {
-      $this->validate( $request, [
-        'name' => 'required|min:3',
-        'website' => 'required|min:5',
+        $this->validate($request,[
+          'name' => 'required|max:99',
+          'description' => 'required|min:5',
+          'logo_or_pic' =>'required|min:5',
+          'website' => 'required|min:5'
         ]);
 
         $charity = new \P4\Charity();
@@ -130,9 +134,11 @@ class CharityController extends Controller {
     /*responds to requests to POST /new charity*/
     public function postIndexCrowdSource(Request $request) {
 
-      $this->validate( $request, [
-        'name' => 'required|min:3',
-        'website' => 'required|min:5',
+        $this->validate($request,[
+          'name' => 'required|max:99',
+          'description' => 'required|min:5',
+          'logo_or_pic' =>'required|min:5',
+          'website' => 'required|min:5'
         ]);
         $charity = new \P4\Charity();
         $charity->name = $request->name;

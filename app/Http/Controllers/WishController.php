@@ -20,7 +20,9 @@ class WishController extends Controller {
     public function getIndexCrowdSource(){
       $wish = \P4\Wish::orderby('id','ASC')->get();
       $charities = \P4\Charity::where('charity_or_crowdsource','=','crowdsource')->get();
-      return view('Wish.indexCrowdSource')->with(['wish'=>$wish, 'charities'=>$charities]);
+     return view('Wish.indexCrowdSource')->with(['wish'=>$wish, 'charities'=>$charities]);
+
+  #    $wishes = \P4\Wish::with('charity')->where('charity_or_crowdsource','=','crowdsource')->get();
 
     }
     public function getIndexMaterial(){
@@ -28,6 +30,7 @@ class WishController extends Controller {
     }
 
     public function getIndexDonation(){
+    #  $wishes = \P4\Wish::with('charity')->where('charity_or_crowdsource','=','charity')->get();
 
       $wish = \P4\Wish::orderby('id','ASC')->get();
       $charities = \P4\Charity::where('charity_or_crowdsource','=','charity')->get();
@@ -38,9 +41,9 @@ class WishController extends Controller {
 
     /*responds to requests to POST /newwish/donation*/
         public function postIndexDonation(Request $request) {
-          #$this->validate( $request, [
-          #  'charity' => 'required|min:3',
-          #  ]);
+            $this->validate( $request, [
+        #    'charity' => 'required|min:3',
+            ]);
             $wish = new \P4\Wish();
             $wish->charity_id = $request->charity;
             $wish->donation_amnt_request = $request->donation_amnt_request;
@@ -56,9 +59,9 @@ class WishController extends Controller {
 
     /*responds to requests to POST /newwish/donation*/
     public function postIndexCrowdSource(Request $request) {
-      #$this->validate( $request, [
-      #  'charity' => 'required|min:3',
-      #  ]);
+      $this->validate( $request, [
+    #    'charity' => 'required|min:3',
+        ]);
         $wish = new \P4\Wish();
         $wish->charity_id = $request->charity;
         $wish->donation_amnt_request = $request->donation_amnt_request;

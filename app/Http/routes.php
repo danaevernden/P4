@@ -32,16 +32,14 @@ Route::get('/charity/delete/{id?}', 'CharityController@getDeleteCharity');
 Route::post('/charity/delete/{id?}','CharityController@postDeleteCharity');
 Route::get('/charity/view/{id?}', 'CharityController@getViewCharity');
 
-Route::get('/newwish', 'WishController@preIndex');
 
 /*users can't access these pages when logged out*/
-#Route::group(['middleware'=> 'auth'], function() {
+Route::group(['middleware'=> 'auth'], function() {
 
     Route::get('/newwish/donation', 'WishController@getIndexDonation');
     Route::post('/newwish/donation', 'WishController@postIndexDonation');
 
-    #Route::get('/newwish/material', 'WishController@getIndexMaterial');
-    #Route::post('/newwish/material', 'WishController@postIndexMaterial');
+    Route::get('/newwish', 'WishController@preIndex');
 
     Route::get('/newwish/crowdsource', 'WishController@getIndexCrowdSource');
     Route::post('/newwish/crowdsource', 'WishController@postIndexCrowdSource');
@@ -61,8 +59,8 @@ Route::get('/newwish', 'WishController@preIndex');
     Route::get('/add/crowdsource', 'CharityController@getIndexCrowdSource');
     Route::post('/add/crowdsource', 'CharityController@postIndexCrowdSource');
 
-#});
 
+});
 
 
 /*users can't access these pages when logged in*/

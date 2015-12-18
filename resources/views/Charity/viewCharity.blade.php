@@ -28,18 +28,21 @@
             <br><a href={{$charity->website}} class="linkInBody"><strong>Website</strong></a>
         @endif
          <br><br>
-         <strong>Total Donations Requested:</strong>
-    {{$wishsum}}<br>
-<strong>Locations requesting donations:</strong><br>
-    
-<strong>Presents:</strong>
-    <img src=/images/gift{{$wishgift}}.png></img>
-  <!--figure out how to get users out of wishes -->
+         <strong>Total Donation Dollars Requested:</strong>
+         ${{$wishsum}}<br>
 
 
-<br><br>
-<a href='/charityfinder' class="button">Back</a>
+        @if (isset($wishgift))
+            @foreach($wishes as $wish)
+              {{$wish->city}}, {{$wish->state}}<br>
+            @endforeach
+        <strong>Presents:</strong>
+            <img src=/images/gift{{$wishgift}}.png></img>
+        @endif
 
-</div>
+      <br><br>
+      <a href='/charityfinder' class="button">Back</a>
+
+  </div>
 
 @stop

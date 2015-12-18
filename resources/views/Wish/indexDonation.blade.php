@@ -24,13 +24,13 @@
                 type='integer'
                 id='donation_amnt_request'
                 name='donation_amnt_request'
-                value='{{old('donation_amnt_request', '30')}}'
+                value='{{old('donation_amnt_request', '')}}'
             >
             <br><br>Message:
             <textarea
                 id='message'
                 name='message'
-                value='{{old('message', 'Hoping this will help!')}}'
+                value='{{old('message', '')}}'
             ></textarea>
             <br><br>Wrapping Paper:
             <input type="radio"

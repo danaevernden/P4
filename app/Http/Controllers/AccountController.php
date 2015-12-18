@@ -21,20 +21,13 @@ class AccountController extends Controller {
 
     public function getIndex() {
       $user = \Auth::user();
-        $wishes = \P4\Wish::with('charity')->where('user_id','=',\Auth::user()->id)->get();
-      //  foreach($wishes as $wish) {
-      //    echo $wish->charity->name.' has the following wishes: '.$wish->donation_amnt_request.' from '.$wish->wisher.'<br>';
-      //  }
-
-      //  dump($wishes->toArray());
-             return view('Account.index')->with(
-             ['wishes'=>$wishes, 'user'=>$user]);
+      $wishes = \P4\Wish::with('charity')->where('user_id','=',\Auth::user()->id)->get();
+      return view('Account.index')->with(
+      ['wishes'=>$wishes, 'user'=>$user]);
     }
 
 
     public function getEditUser(){
-    #  id = null
-    #  return('hi');
       $user =\Auth::user();
       $states = array("Alabama", "Alaska", "Arizona", "Arkansas", "California",
       "Colorado", "Connecticut", "Delaware", "District of Columbia", "Florida",
@@ -45,11 +38,17 @@ class AccountController extends Controller {
       "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
       "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
       "West Virginia", "Wisconsin", "Wyoming" );
-
       return view('Account.editUser')->with(['user'=>$user, 'states'=>$states]);
     }
 
     public function postEditUser(Request $request){
+
+      $this->validate($request,[
+         'first_name' => 'required|max:99|min:2',
+         'last_name' => 'required|max:99|min:2',
+         'email' =>'required|min:5'
+      ]);
+
       $user =\Auth::user();
       $user->first_name = $request->first_name;
       $user->last_name = $request->last_name;
@@ -57,13 +56,14 @@ class AccountController extends Controller {
       $user->state = $request->state;
       $user->save();
       \Session::flash('flash_message','Your user information was updated.');
-
       return redirect('/account');
     }
+
     public function getdeleteWish($id = null){
         $wish = \P4\Wish::find($id);
         return view('Account.deleteWish')->with(['wish'=>$wish]);
     }
+
     public function postdeleteWish($id = null){
       $wish = \P4\Wish::find($id);
       $wish->delete();
@@ -72,6 +72,7 @@ class AccountController extends Controller {
     }
 
     public function getEdit($id = null) {
+        $wishes = \P4\Wish::with('charity')->get();
         $wish = \P4\Wish::find($id);
         $charities = \P4\Charity::orderby('name', 'ASC')->get();
         $user=\Auth::user();
@@ -85,21 +86,21 @@ class AccountController extends Controller {
         "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
         "West Virginia", "Wisconsin", "Wyoming" );
 
-
+         #return useredit or wishedit here
           if(is_null($wish)) {
-
             return view('Account.editUser')->with(['user'=>$user, 'states'=>$states]);
           }
           else{
-            #return('hey');
             return view('Account.edit')->with(['wish'=>$wish, 'charities'=>$charities]);
         }
       }
 
-//*need to figure out how to connect this*//
     public function postEdit(Request $request) {
-        $wish2 = \P4\Wish::find($request->id);
-        dump($wish2);
+
+      $this->validate($request,[
+         'donation_amnt_request' => 'required',
+        ]);
+
         $wish->charity_id = $request->charity;
         $wish->donation_amnt_request = $request->donation_amnt_request;
         $wish->user_id = \Auth::user()->id;

@@ -14,7 +14,6 @@ class MasterController extends Controller {
     public function getIndex() {
       $wish = \P4\Wish::orderby('id','ASC')->get();
       $wishsum = $wish->sum('donation_amnt_request');
-
       $wishgifts = $wish->pluck('wrapping_paper_color');
        return view('Master.index')->with(['wishsum'=>$wishsum, 'wishgifts'=>$wishgifts]);
     }

@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="maincontent">
-    <p>Don't have an account? <a class="linkInBody" href='/register'>Register here...</a></p>
+    <strong>Don't have an account?  </strong><a class="button" href='/register'>Register here</a>
 
     <h1>Login</h1>
 
@@ -20,12 +20,12 @@
 
         <div class='form-group'>
             <label for='email'>Email</label>
-            <input type='text' name='email' id='email' value='{{ old('email', 'jill@harvard.edu') }}'>
+            <input type='text' name='email' id='email' value='{{ old('email', '') }}'>
         </div>
 
         <div class='form-group'>
             <label for='password'>Password</label>
-            <input type='password' name='password' id='password' value='{{ old('password', 'helloworld') }}'>
+            <input type='password' name='password' id='password' value='{{ old('password', '') }}'>
         </div>
 
         <div class='form-group'>
