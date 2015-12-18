@@ -21,15 +21,15 @@ class CharityController extends Controller {
         return view('Charity.indexCharityFinder')->with('charities', $charities);
     }
 
-    public function postIndexCharityFinder(Request $request){
-      $charity = \P4\Charity::find($request->city);
+  #  public function postIndexCharityFinder(Request $request){
+  #    $charity = \P4\Charity::find($request->city);
 
-      if(is_null($charity)) {
-          \Session::flash('flash_message','Charity not found.');
-          return redirect('\charityfinder');
-      }
-      return view('Charity.indexCharityFinder')->with('charity', $charity);
-    }
+  #    if(is_null($charity)) {
+  #        \Session::flash('flash_message','Charity not found.');
+  #        return redirect('\charityfinder');
+  #    }
+  #    return view('Charity.indexCharityFinder')->with('charity', $charity);
+  #  }
 
     public function getIndexCharity(){
       $states = array("Alabama", "Alaska", "Arizona", "Arkansas", "California",

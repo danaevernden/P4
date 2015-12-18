@@ -35,13 +35,14 @@
                       {{ $charity->description}}
                    @endif
                    @if ($charity->website !=="")
-                      <br><a href={{$charity->website}} class="linkInBody"><strong style='color:maroon;'>Website</strong></a>
+                      <br><a href={{$charity->website}} class="linkInBody" target="_blank"><strong style='color:maroon;'>Website</strong></a>
                   @endif
                    <br><br>
                    <input type='hidden' name='id' value='{{ $charity->id }}'>
                    <a href='/charity/edit/{{$charity->id}}' class="button">Edit</a>
                    <a href='/charity/view/{{$charity->id}}' class="button">View</a>
           @endforeach
+        </div>
       </div>
   </div>
 @stop

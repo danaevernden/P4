@@ -61,7 +61,7 @@ class AccountController extends Controller {
 
     public function getdeleteWish($id = null){
         $wish = \P4\Wish::find($id);
-        return view('Account.deleteWish')->with(['wish'=>$wish]);
+        return view('Account.deletewish')->with(['wish'=>$wish]);
     }
 
     public function postdeleteWish($id = null){
