@@ -19,7 +19,7 @@
             @endforeach
         </ul><br>
       @endif
-      
+
       <div class="preWishTitle2">
         Edit a wish
       </div>
@@ -65,23 +65,23 @@
             <input type="radio"
             id="wrapping_paper_color"
             name="wrapping_paper_color"
-            value="2">
+            value="2"
             <?php echo ($wish->wrapping_paper_color==2)?'checked':'' ?>
-            <img src=/images/gift4.png></img>
+            ><img src=/images/gift4.png></img>
 
             <input type="radio"
             id="wrapping_paper_color"
             name="wrapping_paper_color"
-            value="3">
+            value="3"
             <?php echo ($wish->wrapping_paper_color==3)?'checked':'' ?>
-            <img src=/images/gift3.png></img>
+            ><img src=/images/gift3.png></img>
 
             <input type="radio"
             id="wrapping_paper_color"
             name="wrapping_paper_color"
-            value="4">
+            value="4"
             <?php echo ($wish->wrapping_paper_color==4)?'checked':'' ?>
-            <img src=/images/gift6.png></img>
+            ><img src=/images/gift6.png></img>
             <br><br>
             <button type="save" class="button">Save</button>
             <a href='/account/delete/{{$wish->id}}' class="button">
