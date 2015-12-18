@@ -34,7 +34,7 @@ class WishController extends Controller {
 
       $wish = \P4\Wish::orderby('id','ASC')->get();
       $charities = \P4\Charity::where('charity_or_crowdsource','=','charity')->get();
-      return view('Wish.indexCharity')->with(['wish'=>$wish, 'charities'=>$charities]);
+      return view('Wish.IndexCharity')->with(['wish'=>$wish, 'charities'=>$charities]);
 
     }
 
