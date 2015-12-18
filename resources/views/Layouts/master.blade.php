@@ -10,9 +10,10 @@
       <link href='https://fonts.googleapis.com/css?family=Pacifico' property='stylesheet' rel='stylesheet' type='text/css'>
       <link rel="shortcut icon" href="/images/favicon.ico">
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <title>Season of Giving</title>
     </head>
 
-    <title>Season of Giving</title>
+
 
       <div class="title">
           <a href="/" class="titlelink">
