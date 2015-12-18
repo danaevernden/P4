@@ -1,12 +1,5 @@
 @extends('Layouts.master')
 
-@section('header')
-  <div class="banner">
-
-
-  </div>
-@stop
-
 @section('content')
     <div class="maincontent">
         <div class="charityform">

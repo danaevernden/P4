@@ -1,11 +1,5 @@
 @extends('Layouts.master')
 
-@section('header')
-  <div class="banner">
-
-  </div>
-@stop
-
 @section('content')
     <div class="maincontent">
         <div class="wishform">
@@ -33,7 +27,7 @@
                         <textarea
                             id='mission'
                             name='mission'
-                            value='{{$charity->mission}}'>
+                        >
                             {{$charity->mission}}
                         </textarea>
                     <br><br>Year Founded:
@@ -65,8 +59,7 @@
                 <textarea
                     id='description'
                     name='description'
-                    value='{{$charity->description}}'
-                >
+                    >
                 {{$charity->description}}
                 </textarea>
                 <br><br>Website:

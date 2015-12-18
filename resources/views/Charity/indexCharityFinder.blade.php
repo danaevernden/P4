@@ -11,30 +11,10 @@
   <div class="maincontent">
     <div class="wishform">
           <div class="CharityFinder">
-        <!--    Search for a Charity or Crowdsource
-          </div>
-          <form method='POST' action='/charityfinder'>
-              <input type='hidden' value='{{ csrf_token() }}' name='_token'>
-              <fieldset>
-                 <label for='numpara'>Search:</label>
-                 <input type="text" id='numpara' name="numpara">
-                 Charity or Crowdsource:
-                 <select name="charity_or_crowdsource">
-                    <option value="charity">charity</option>
-                    <option value="crowdsource">crowdsource</option>
-                 </select>
-                 <br><br>
-                 <button type="submit" class="button">Submit</button>
-              </fieldset>
-          </form>
-
-          <br>
-          <a href="/charity" class="button">Back</a>
-    </div>
--->        <h1>All Charities and CrowdSources</h1>
+            <h1>All Charities and CrowdSources</h1>
               @foreach($charities as $charity)
                   <h2>{{ $charity->name }}</h2>
-                  <img class='CharityFinderimg' src='{{ $charity->logo_or_pic }}'>
+                  <img class='CharityFinderimg' alt="charity" src='{{ $charity->logo_or_pic }}'>
                   @if ($charity->mission !== "")
                       <br><strong>Mission:</strong>
                       {{ $charity->mission}}

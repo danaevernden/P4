@@ -89,7 +89,6 @@ class CharityController extends Controller {
       $wishes = \P4\Wish::with('charity')->where('charity_id','=',$id)->get();
       $wishsum = $wishes->sum('donation_amnt_request');
       $wishgift = \P4\Wish::where('charity_id','=',$id)->pluck('wrapping_paper_color');
-      dump($wishgift);
       return view('Charity.viewCharity')->with(['charity'=>$charity, 'wishes'=>$wishes,'wishsum'=>$wishsum, 'wishgift'=>$wishgift]);
     }
     /*responds to requests to POST /new charity*/

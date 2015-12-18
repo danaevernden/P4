@@ -14,7 +14,7 @@
         -->    <img src="/images/change.jpg" class="CharityFinderimg"/><br>
           @if (!empty($wishgifts))
              @foreach($wishgifts as $wishgift)
-                  <img src=/images/gift{{$wishgift}}.png></img>
+                  <img alt="gift" src=/images/gift{{$wishgift}}.png><
               @endforeach
           @endif
           </div>

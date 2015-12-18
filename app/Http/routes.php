@@ -36,8 +36,8 @@ Route::get('/charity/view/{id?}', 'CharityController@getViewCharity');
 /*users can't access these pages when logged out*/
 Route::group(['middleware'=> 'auth'], function() {
 
-    Route::get('/newwish/donation', 'WishController@getIndexDonation');
-    Route::post('/newwish/donation', 'WishController@postIndexDonation');
+    Route::get('/newwish/charity', 'WishController@getIndexDonation');
+    Route::post('/newwish/charity', 'WishController@postIndexDonation');
 
     Route::get('/newwish', 'WishController@preIndex');
 

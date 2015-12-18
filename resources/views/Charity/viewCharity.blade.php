@@ -1,7 +1,7 @@
 @extends('Layouts.master')
 
 @section('content')
-<div class="maincontent">
+  <div class="maincontent">
 
             <h2>{{ $charity->name }}</h2>
             <img class='CharityFinderimg' src='{{ $charity->logo_or_pic }}'>
