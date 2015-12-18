@@ -29,20 +29,20 @@ class WishController extends Controller {
         return view('Wish.indexMaterial');
     }
 
-    public function getIndexDonation(){
+    public function getIndexCharity(){
     #  $wishes = \P4\Wish::with('charity')->where('charity_or_crowdsource','=','charity')->get();
 
       $wish = \P4\Wish::orderby('id','ASC')->get();
       $charities = \P4\Charity::where('charity_or_crowdsource','=','charity')->get();
-      return view('Wish.indexDonation')->with(['wish'=>$wish, 'charities'=>$charities]);
+      return view('Wish.indexCharity')->with(['wish'=>$wish, 'charities'=>$charities]);
 
     }
 
 
     /*responds to requests to POST /newwish/donation*/
-        public function postIndexDonation(Request $request) {
+        public function postIndexCharity(Request $request) {
             $this->validate( $request, [
-        #    'charity' => 'required|min:3',
+              'donation_amnt_request' => 'required',
             ]);
             $wish = new \P4\Wish();
             $wish->charity_id = $request->charity;
@@ -60,7 +60,7 @@ class WishController extends Controller {
     /*responds to requests to POST /newwish/donation*/
     public function postIndexCrowdSource(Request $request) {
       $this->validate( $request, [
-    #    'charity' => 'required|min:3',
+          'donation_amnt_request'=> 'required',
         ]);
         $wish = new \P4\Wish();
         $wish->charity_id = $request->charity;

@@ -3,10 +3,18 @@
 
     <div class="maincontent">
         <div class="wishform">
+          @if(count($errors) > 0)
+            <ul class="errors">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul><br>
+          @endif
+          
             <div class="preWishTitle2">
                 Log a Donation
             </div>
-        <form method='POST' action='/newwish/donation'>
+        <form method='POST' action='/newwish/charity'>
         <input type='hidden' value='{{ csrf_token() }}' name='_token'>
         <fieldset>
             <div class='form-group'>

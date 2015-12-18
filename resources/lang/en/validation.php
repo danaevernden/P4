@@ -99,7 +99,7 @@ return [
         'donation_amnt_request'=> ['required' => 'We need a donation amount!'],
         'email'=>['required' => 'We need an email address!'],
         'description'=> ['required' => 'We need a charity or crowdsource description!'],
-
+        'year_founded'=>['between'=>'Year founded must be between 1800 and 2020!'],
     ],
 
     /*

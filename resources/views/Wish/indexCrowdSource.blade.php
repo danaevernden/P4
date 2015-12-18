@@ -3,10 +3,17 @@
 @section('content')
     <div class="maincontent">
         <div class ="wishform">
-            <div class="preWishTitle2">
-            Log a Crowdsource wish
-        </div>
-        <form method='POST' action='/newwish/crowdsource'>
+          @if(count($errors) > 0)
+            <ul class="errors">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul><br>
+          @endif
+          <div class="preWishTitle2">
+              Log a Crowdsource wish
+          </div>
+          <form method='POST' action='/newwish/crowdsource'>
             <input type='hidden' value='{{ csrf_token() }}' name='_token'>
             <fieldset>
               <div class='form-group'>

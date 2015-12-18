@@ -66,7 +66,8 @@ class CharityController extends Controller {
              'name' => 'required|max:99',
              'description' => 'required|min:5',
              'logo_or_pic' =>'required|min:5',
-             'website' => 'required|min:5'
+             'website' => 'required|min:5',
+             'year_founded' =>'integer|between:1800,2020'
           ]);
           $charity = \P4\Charity::find($request->id);
           $charity->name = $request->name;
@@ -97,7 +98,8 @@ class CharityController extends Controller {
           'name' => 'required|max:99',
           'description' => 'required|min:5',
           'logo_or_pic' =>'required|min:5',
-          'website' => 'required|min:5'
+          'website' => 'required|min:5',
+          'year_founded' =>'integer|between:1800,2020'
         ]);
 
         $charity = new \P4\Charity();
