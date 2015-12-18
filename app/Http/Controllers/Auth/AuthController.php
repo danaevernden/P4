@@ -93,8 +93,8 @@ class AuthController extends Controller
 
     public function getRegister()
     {
-      return view ('Auth.Register');
+      return view ('auth.register');
     }
-    
+
 
 }
