@@ -12,9 +12,7 @@
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       <title>Season of Giving</title>
     </head>
-
-
-
+    <header>
       <div class="title">
           <a href="/" class="titlelink">
             <img src="/images/giftban.png" alt="giftban" class="giftban"/>
