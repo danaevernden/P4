@@ -51,7 +51,7 @@
         What will the space under your tree look like this holiday season?
         <br>
         <br>
-        <img src="/images/giftfreetree.jpg" class="giftfreetree"/>
+        <img src="/images/giftfreetree.jpg" class="giftfreetree" alt="giftfreetree"/>
 
       </div>
   </div>
