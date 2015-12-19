@@ -25,7 +25,7 @@
                       {{ $charity->city}}, {{ $charity->state}}
                    @endif
 
-                   @if ($charity->year_founded !== 0)
+                   @if (!empty($charity->year_founded))
                       <br><strong>Year Founded:</strong>
                       {{ $charity->year_founded}}
                   @endif
