@@ -12,63 +12,62 @@
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       <title>Season of Giving</title>
     </head>
-    <header>
-      <div class="title">
-          <a href="/" class="titlelink">
-            <img src="/images/giftban.png" alt="giftban" class="giftban"/>
-            @if(Request::is('/'))
-                Welcome
-            @else
-                Season of Giving
-            @endif
-            <img src="/images/giftban.png" class="giftban" alt="giftban"/>
-          </a>
-      </div>
-      <div class="nav">
-       <div class="ribbon">
-         <h1>
-           <strong class="ribbon-content">
-    <!--  <div class = "ribbonstuff">
-        <img src="/images/ribbon.png" class="ribbonban" alt="ribbonban"/>
--->
-          @if(Auth::check())
-            <a href="/about">About</a>
-            -
-            <a href="/charity">Charities</a>
-             -
-            <a href="/newwish">Log a Wish</a>
-            -
-           <a href="/account">My Account</a>
-            -
-           <a href="/logout">Log Out</a>
-         @else
-            <a href="/about">About</a>
-             -
-            <a href="/charity">Charities</a>
-             -
-            <a href="/newwish">Log a Wish</a>
-            -
-           <a href="/register">Register</a>
-            -
-           <a href="/login">Log In</a>
-      @endif
+    <body>
+      <header>
+        <div class="title">
+            <a href="/" class="titlelink">
+              <img src="/images/giftban.png" alt="giftban" class="giftban"/>
+              @if(Request::is('/'))
+                  Welcome
+              @else
+                  Season of Giving
+              @endif
+              <img src="/images/giftban.png" class="giftban" alt="giftban"/>
+            </a>
+        </div>
+        <div class="nav">
+         <div class="ribbon">
+           <h1>
+             <strong class="ribbon-content">
+      <!--  <div class = "ribbonstuff">
+          <img src="/images/ribbon.png" class="ribbonban" alt="ribbonban"/>
+  -->
+            @if(Auth::check())
+              <a href="/about">About</a>
+              -
+              <a href="/charity">Charities</a>
+               -
+              <a href="/newwish">Log a Wish</a>
+              -
+             <a href="/account">My Account</a>
+              -
+             <a href="/logout">Log Out</a>
+           @else
+              <a href="/about">About</a>
+               -
+              <a href="/charity">Charities</a>
+               -
+              <a href="/newwish">Log a Wish</a>
+              -
+             <a href="/register">Register</a>
+              -
+             <a href="/login">Log In</a>
+        @endif
 
-      </strong>
-    </h1>
-    <div class="ribbon-stitches-bottom">
-  </div>
-</div>
-  </div>
-    @yield('banner')
-  </header>
-
-  <body>
-      @yield('header')
-      <div class="content2">
-          @yield('content')
+          </strong>
+        </h1>
+        <div class="ribbon-stitches-bottom">
       </div>
-      <footer>
-          @yield('footer')
-      </footer>
+    </div>
+    </div>
+      @yield('banner')
+    </header>
+    @yield('header')
+        <div class="content2">
+            @yield('content')
+        </div>
+        <footer>
+            @yield('footer')
+        </footer>
   </body>
 </html>
