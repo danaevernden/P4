@@ -14,7 +14,7 @@
     </head>
     <body>
       <header>
-        <div class="title">
+        <div class="titlemain">
             <a href="/" class="titlelink">
               <img src="/images/giftban.png" alt="giftban" class="giftban"/>
               @if(Request::is('/'))
